@@ -1,0 +1,109 @@
+.btn {
+  @include flexCenter;
+  display: inline-flex;
+  position: relative;
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all $transition-default;
+  border-radius: $radius-sm;
+  outline: none;
+  border: 1px solid transparent;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba(74, 129, 211, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.label {
+  display: inline-block;
+  line-height: 1;
+}
+
+.iconLeft {
+  margin-right: $space-sm;
+  @include flexCenter;
+  line-height: 1;
+}
+
+.iconRight {
+  margin-left: $space-sm;
+  @include flexCenter;
+  line-height: 1;
+}
+
+// Size Variants
+.sm {
+  padding: $space-xs $space-md;
+  font-size: $text-xs;
+  height: 34px;
+}
+
+.md {
+  padding: $space-sm $space-lg;
+  font-size: $text-sm;
+  height: 44px;
+}
+
+.lg {
+  padding: $space-md $space-xl;
+  font-size: $text-base;
+  height: 52px;
+}
+
+// Style Variants
+.primary {
+  background-color: $primary;
+  color: $foreground-light;
+
+  &:hover:not(:disabled) {
+    background-color: $primary-hover;
+  }
+}
+
+.secondary {
+  background-color: $surface-dark;
+  color: $foreground-light;
+  border-color: $border;
+
+  &:hover:not(:disabled) {
+    background-color: $surface-hover;
+    border-color: $primary;
+  }
+}
+
+.gradient {
+  background-image: $gradient-primary;
+  color: $foreground-light;
+
+  &:hover:not(:disabled) {
+    opacity: 0.92;
+  }
+}
+
+.outline {
+  background-color: transparent;
+  color: $foreground-light;
+  border-color: $border;
+
+  &:hover:not(:disabled) {
+    border-color: $primary;
+    background-color: rgba(74, 129, 211, 0.1);
+  }
+}
+
+.whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+
+  &:hover:not(:disabled) {
+    background-color: #20ba5a;
+  }
+}

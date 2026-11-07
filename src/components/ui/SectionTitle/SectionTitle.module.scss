@@ -1,0 +1,104 @@
+.sectionTitle {
+  margin-bottom: $space-xxl;
+  position: relative;
+  z-index: 1;
+
+  &.center {
+    text-align: center;
+
+    .subtitleWrapper {
+      justify-content: center;
+    }
+
+    .description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.left {
+    text-align: left;
+
+    .subtitleWrapper {
+      justify-content: flex-start;
+    }
+  }
+}
+
+.subtitleWrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: $space-sm;
+}
+
+.subtitleDot {
+  width: 6px;
+  height: 6px;
+  background-color: $primary;
+  border-radius: $radius-full;
+  margin-right: $space-sm;
+  display: inline-block;
+}
+
+.subtitleText {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: $primary;
+  line-height: 1.5;
+
+  @include respond-above(md) {
+    letter-spacing: 4px;
+  }
+}
+
+.title {
+  font-size: $text-2xl;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: $space-md;
+  letter-spacing: -0.015em;
+
+  @include respond-above(md) {
+    font-size: $text-3xl;
+  }
+
+  @include respond-above(lg) {
+    font-size: $text-4xl;
+  }
+}
+
+.description {
+  font-size: $text-base;
+  line-height: 1.7;
+  max-width: 680px;
+
+  @include respond-above(md) {
+    font-size: $text-lg;
+    line-height: 1.8;
+  }
+}
+
+// Dark Theme (default on dark sections)
+.dark {
+  .title {
+    color: $foreground-light;
+  }
+
+  .description {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+// Light Theme (on alternating light sections like About/Testimonials)
+.light {
+  .title {
+    color: $foreground;
+  }
+
+  .description {
+    color: $text-muted;
+  }
+}

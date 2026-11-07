@@ -1,0 +1,69 @@
+.topBar {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.topBarInner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.topContact {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+  flex-wrap: wrap;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.icon {
+  font-size: 12px;
+  color: $primary;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+
+  @include respond-below(md) {
+    display: none;
+  }
+}
+
+.socialIcon {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}

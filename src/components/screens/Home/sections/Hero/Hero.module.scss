@@ -1,0 +1,134 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 170px;
+  padding-bottom: 90px;
+  background-color: $dark-background;
+  background-image: linear-gradient(0deg, rgba(18, 19, 44, 0.75) 0%, rgba(18, 19, 44, 0.75) 50%),
+    url("/images/cyberguard/bg-home5.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding-top: 190px;
+    padding-bottom: 110px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background-image: linear-gradient(0deg, #12132c 0%, rgba(18, 19, 44, 0) 100%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.content {
+  text-align: center;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.subtitleWrapper {
+  margin-bottom: $space-md;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: $foreground-light;
+  margin-bottom: $space-lg;
+
+  @include respond-above(md) {
+    font-size: 48px;
+  }
+
+  @include respond-above(lg) {
+    font-size: 60px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+
+  @include respond-above(md) {
+    font-size: 19px;
+  }
+}
+
+.featuresRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+  padding-top: $space-md;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-above(lg) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: $space-md;
+  }
+}
+
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.iconBox {
+  margin-bottom: 14px;
+  @include flexCenter;
+  width: 70px;
+  height: 70px;
+}
+
+.iconImg {
+  object-fit: contain;
+}
+
+.featureTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: $foreground-light;
+  line-height: 1.4;
+}

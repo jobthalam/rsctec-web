@@ -1,0 +1,164 @@
+.section {
+  background-color: $dark-background;
+  padding: 100px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $foreground-light;
+  margin-bottom: $space-md;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-above(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+  background-image: linear-gradient(#191c37 0%, #222e65 100%);
+
+  border-radius: 20px;
+  padding: 38px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color $transition-default;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba(74, 129, 211, 0.5);
+  }
+}
+
+.bgIconOverlay {
+  position: absolute;
+  top: 15px;
+  right: -25px;
+  width: 220px;
+  height: 220px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bgIconImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.iconBox {
+  @include flexCenter;
+  width: 72px;
+  height: 72px;
+  background-image: linear-gradient(135deg, #4a81d3 0%, #514a9d 100%);
+  border-radius: 18px;
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.iconImg {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cardTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: $foreground-light;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+}
+
+.cardDesc {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 28px;
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 2;
+  max-width: 90%;
+}
+
+.learnMoreBtn {
+  @include flexCenter;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 11px 26px;
+  background-color: $dark-background;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: $foreground-light;
+  text-decoration: none;
+  transition:
+    opacity $transition-fast,
+    filter $transition-fast;
+  position: relative;
+  z-index: 2;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}

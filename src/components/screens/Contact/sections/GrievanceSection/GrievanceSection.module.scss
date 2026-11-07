@@ -1,0 +1,122 @@
+.section {
+  background-color: $dark-background;
+  padding: 40px 0 100px 0;
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.grievanceCard {
+  background-color: $surface-dark;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 24px;
+
+  @include respond-above(md) {
+    padding: 50px 48px;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-xs;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: $foreground-light;
+  margin-bottom: $space-sm;
+
+  @include respond-above(md) {
+    font-size: 34px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include respond-above(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.infoBox {
+  background-color: $dark-background;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px 24px;
+
+  i {
+    font-size: 24px;
+    color: $primary;
+    margin-bottom: 16px;
+    display: inline-block;
+  }
+
+  h4 {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+  }
+
+  p {
+    font-family: var(--font-primary), sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 16px 0;
+
+    strong {
+      color: #ffffff;
+    }
+  }
+}
+
+.officerEmail {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $primary;
+  text-decoration: none;
+  display: inline-block;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}

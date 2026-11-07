@@ -1,0 +1,161 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(6, 9, 17, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer {
+  width: 85%;
+  max-width: 360px;
+  height: 100%;
+  background-color: $dark-background;
+  border-left: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: $shadow-xl;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-lg;
+  border-bottom: 1px solid $border;
+}
+
+.brand {
+  font-family: var(--font-primary), sans-serif;
+  font-size: $text-xl;
+  font-weight: 700;
+  color: $foreground-light;
+}
+
+.brandAccent {
+  color: $primary;
+}
+
+.closeBtn {
+  width: 36px;
+  height: 36px;
+  @include flexCenter;
+  color: $foreground-light;
+  font-size: $text-lg;
+  border-radius: $radius-sm;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid $border;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.nav {
+  flex: 1 0 auto;
+  padding: $space-md $space-lg;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+}
+
+.navItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.navLink,
+.submenuToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: $space-md 0;
+  font-size: $text-base;
+  font-weight: 500;
+  color: $foreground-light;
+  text-align: left;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.chevron {
+  font-size: $text-sm;
+  color: $text-muted;
+  transition: transform $transition-fast;
+
+  &.open {
+    transform: rotate(180deg);
+    color: $primary;
+  }
+}
+
+.submenu {
+  padding-left: $space-md;
+  padding-bottom: $space-sm;
+}
+
+.submenuItem {
+  margin-bottom: $space-xs;
+}
+
+.submenuLink {
+  display: block;
+  padding: $space-xs 0;
+  font-size: $text-sm;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.footer {
+  padding: $space-lg;
+  border-top: 1px solid $border;
+  background-color: $surface-dark;
+  margin-top: auto;
+}
+
+.contactDetails {
+  margin-bottom: $space-md;
+}
+
+.phoneLabel {
+  font-size: $text-xs;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $text-muted;
+  margin-bottom: $space-xs;
+}
+
+.phoneLink {
+  font-size: $text-base;
+  font-weight: 600;
+  color: $primary;
+}
+
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.fullWidthBtn {
+  width: 100%;
+  justify-content: center;
+}

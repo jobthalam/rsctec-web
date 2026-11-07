@@ -1,0 +1,134 @@
+.section {
+  background-color: $dark-background;
+  padding: 100px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $foreground-light;
+  margin-bottom: $space-md;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-above(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.projectCard {
+  background-color: $surface-dark;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: all $transition-default;
+
+  &:hover {
+    border-color: $primary;
+
+    .hoverOverlay {
+      opacity: 1;
+    }
+  }
+}
+
+.imgBox {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(18, 19, 44, 0.6);
+  @include flexCenter;
+  opacity: 0;
+  transition: opacity $transition-fast;
+}
+
+.viewDetails {
+  background-color: $primary;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: $radius-full;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.captionBox {
+  padding: 24px;
+  background-color: $surface-dark;
+  text-align: center;
+}
+
+.cardTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $foreground-light;
+  margin: 0;
+}

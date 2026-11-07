@@ -1,0 +1,245 @@
+.section {
+  background-color: $dark-background;
+  padding: 40px 0 80px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.formCard {
+  background-color: $surface-dark;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px 24px;
+
+  @include respond-above(md) {
+    padding: 50px 48px;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-xs;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: $foreground-light;
+  margin-bottom: $space-sm;
+
+  @include respond-above(md) {
+    font-size: 36px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include respond-above(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background-color: $dark-background;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-family: var(--font-primary), sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color $transition-fast;
+
+    &:focus {
+      border-color: $primary;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+  }
+
+  select {
+    cursor: pointer;
+
+    option {
+      background-color: #12132c;
+      color: #ffffff;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.consentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  background-color: rgba(74, 129, 211, 0.06);
+  border: 1px solid rgba(74, 129, 211, 0.2);
+  border-radius: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: $primary;
+    cursor: pointer;
+  }
+
+  span {
+    font-family: var(--font-primary), sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+
+    strong {
+      color: #ffffff;
+    }
+  }
+}
+
+.submitBtn {
+  @include flexCenter;
+  width: 100%;
+  padding: 14px 28px;
+  background-image: linear-gradient(135deg, #4a81d3 0%, #514a9d 100%);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity $transition-fast, filter $transition-fast;
+  margin-top: 8px;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.successState {
+  text-align: center;
+  padding: 40px 20px;
+
+  h3 {
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 16px 0 10px 0;
+  }
+
+  p {
+    font-family: var(--font-primary), sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 580px;
+    margin: 0 auto 28px auto;
+
+    strong {
+      color: $primary;
+    }
+  }
+}
+
+.checkIcon {
+  @include flexCenter;
+  width: 68px;
+  height: 68px;
+  background-color: rgba(74, 129, 211, 0.15);
+  border-radius: $radius-full;
+  margin: 0 auto;
+
+  i {
+    font-size: 34px;
+    color: $primary;
+  }
+}
+
+.resetBtn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $primary;
+  }
+}

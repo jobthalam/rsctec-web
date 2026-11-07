@@ -1,0 +1,99 @@
+.desktopNav {
+  display: none;
+  @include respond-above(lg) {
+    display: block;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.menuItem {
+  position: relative;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  padding: $space-sm 0;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.dropdownArrow {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform $transition-fast;
+}
+
+.hasDropdown:hover .dropdownArrow {
+  transform: rotate(180deg);
+  color: $primary;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 290px;
+  background-color: rgba(25, 27, 54, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: $radius-lg;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  padding: $space-sm;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all $transition-default;
+
+  &.dropdownOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.dropdownList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownLink {
+  display: flex;
+  flex-direction: column;
+  padding: $space-sm $space-md;
+  border-radius: $radius-sm;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $surface-hover;
+    .dropdownLabel {
+      color: $primary;
+    }
+  }
+}
+
+.dropdownLabel {
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $foreground-light;
+}
+
+.dropdownDesc {
+  font-size: $text-xs;
+  color: $text-muted;
+  margin-top: 2px;
+}

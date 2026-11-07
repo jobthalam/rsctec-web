@@ -1,0 +1,125 @@
+.section {
+  background-color: $surface-dark;
+  padding: 100px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $foreground-light;
+  margin-bottom: $space-md;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cardsRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  @include respond-above(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featureCard {
+  background-color: $dark-background;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: $radius-lg;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  transition: all $transition-default;
+
+  @include respond-above(sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.stepNum {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: $primary;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.cardHeading {
+  font-size: 22px;
+  font-weight: 700;
+  color: $foreground-light;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.cardText {
+  font-size: 15px;
+  line-height: 1.7;
+  color: $text-muted;
+}
+
+.cardImgBox {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 200px;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+}
+
+.cardImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}

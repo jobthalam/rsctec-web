@@ -1,0 +1,81 @@
+.heroSection {
+  background-color: $dark-background;
+  padding: 140px 0 70px 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  @include respond-above(md) {
+    padding: 160px 0 90px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: $space-xs;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: $space-md;
+}
+
+.breadcrumbLink {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.current {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $foreground-light;
+  margin-bottom: $space-md;
+  max-width: 900px;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 760px;
+}

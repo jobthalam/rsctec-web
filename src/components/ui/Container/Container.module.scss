@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space-md;
+  padding-right: $space-md;
+  max-width: 1200px;
+
+  @include respond-above(md) {
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+  }
+
+  @include respond-above(xl) {
+    max-width: 1280px;
+    padding-left: $space-xl;
+    padding-right: $space-xl;
+  }
+}
+
+.narrow {
+  max-width: 960px;
+
+  @include respond-above(xl) {
+    max-width: 1024px;
+  }
+}
+
+.wide {
+  max-width: 100%;
+
+  @include respond-above(xl) {
+    max-width: 1400px;
+  }
+}

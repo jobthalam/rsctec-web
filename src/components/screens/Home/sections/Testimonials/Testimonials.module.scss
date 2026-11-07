@@ -1,0 +1,145 @@
+.section {
+  background-color: #ffffff;
+  padding: 100px 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $foreground;
+  letter-spacing: -0.015em;
+  margin-bottom: $space-md;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: $text-muted;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reviewCard {
+  background-color: #f3f3f4;
+  border-radius: $radius-lg;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all $transition-default;
+  border: 1px solid #dee2e6;
+
+  &:hover {
+    box-shadow: $shadow-card;
+    background-color: #ffffff;
+    border-color: $primary;
+  }
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stars {
+  color: $accent;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.googleIcon {
+  object-fit: contain;
+}
+
+.quote {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #3e4458;
+  margin-bottom: 30px;
+  flex: 1 0 auto;
+  font-style: italic;
+}
+
+.authorBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.authorAvatar {
+  @include flexCenter;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(74, 129, 211, 0.15);
+  color: $primary;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: $radius-full;
+  flex-shrink: 0;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 16px;
+  font-weight: 700;
+  color: $foreground;
+  margin-bottom: 2px;
+}
+
+.authorRole {
+  font-size: 13px;
+  color: $text-muted;
+
+  span {
+    color: $primary;
+    font-weight: 600;
+  }
+}
