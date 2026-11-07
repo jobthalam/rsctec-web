@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import SuccessState from "./components/SuccessState/SuccessState";
 import styles from "./ContactForm.module.scss";
 
 export default function ContactForm() {
@@ -37,6 +38,20 @@ export default function ContactForm() {
     }, 800);
   };
 
+  const handleReset = () => {
+    setSubmitted(false);
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      company: "",
+      interest: "Cybersecurity & VAPT",
+      message: "",
+      dpdpaConsent: false,
+      newsletter: false,
+    });
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -51,36 +66,12 @@ export default function ContactForm() {
           </div>
 
           {submitted ? (
-            <div className={styles.successState}>
-              <div className={styles.checkIcon}>
-                <i className="fas fa-check-circle" />
-              </div>
-              <h3>Thank You, {formData.fullName}!</h3>
-              <p>
-                Your inquiry regarding <strong>{formData.interest}</strong> has been received by
-                RS Consulting. A lead security advisor will reach out to you at{" "}
-                <strong>{formData.email}</strong> shortly.
-              </p>
-              <button
-                type="button"
-                className={styles.resetBtn}
-                onClick={() => {
-                  setSubmitted(false);
-                  setFormData({
-                    fullName: "",
-                    email: "",
-                    phone: "",
-                    company: "",
-                    interest: "Cybersecurity & VAPT",
-                    message: "",
-                    dpdpaConsent: false,
-                    newsletter: false,
-                  });
-                }}
-              >
-                Send Another Message
-              </button>
-            </div>
+            <SuccessState
+              fullName={formData.fullName}
+              interest={formData.interest}
+              email={formData.email}
+              onReset={handleReset}
+            />
           ) : (
             <form onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.row}>
@@ -184,10 +175,8 @@ export default function ContactForm() {
                     required
                   />
                   <span>
-                    <strong>Statutory DPDPA Consent:</strong> I confirm that I agree to RS
-                    Consulting processing my submitted contact information solely for responding
-                    to this inquiry in compliance with the Digital Personal Data Protection Act
-                    (DPDP Act, 2023). *
+                    <strong>Statutory DPDPA Consent:</strong> I agree to RS Consulting processing my
+                    contact info solely for responding to this inquiry in compliance with the DPDP Act, 2023. *
                   </span>
                 </label>
 
