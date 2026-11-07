@@ -32,6 +32,17 @@ const HERO_FEATURES = [
 export default function Hero() {
   return (
     <section className={styles.hero}>
+      <video
+        className={styles.bgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/images/cyberguard/bg-home5.jpg"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.videoOverlay} />
       <div className={styles.overlay} />
       <div className={styles.container}>
         <div className={styles.content}>
