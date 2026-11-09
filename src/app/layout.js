@@ -20,6 +20,21 @@ export const metadata = {
     siteName: "RS Consulting",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "RS Consulting - Information Security, Risk Management & Cloud Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RS Consulting | Cybersecurity & DPDPA Compliance",
+    description:
+      "Security-led DPDP Act, 2023 compliance, vulnerability management, cloud security, and managed security services.",
+    images: ["/og-image.jpg"],
   },
 };
 
