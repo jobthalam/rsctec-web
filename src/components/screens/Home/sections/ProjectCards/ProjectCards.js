@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
+import ExpandOnView from "@/components/common/ExpandOnView/ExpandOnView";
 import styles from "./ProjectCards.module.scss";
 
 const PROJECTS = [
@@ -26,21 +28,24 @@ export default function ProjectCards() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.subtitle}>Sector-Specific Focus</span>
-          <h2 className={styles.title}>
-            Proven Security & Compliance Across Regulated Sectors
-          </h2>
-          <p className={styles.description}>
-            The DPDP Act and modern infosec mandates apply across all industries.
-            Explore our specialized security architectures tailored to high-compliance sectors.
-          </p>
-        </div>
+        <SectionHeader
+          subtitle="Sector-Specific Focus"
+          title="Proven Security & Compliance Across Regulated Sectors"
+          description="The DPDP Act and modern infosec mandates apply across all industries. Explore our specialized security architectures tailored to high-compliance sectors."
+          variant="dark"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
-          {PROJECTS.map((p) => (
-            <Link key={p.title} href={p.link} className={styles.projectCard}>
-              <div className={styles.imgBox}>
+          {PROJECTS.map((p, idx) => (
+            <Link
+              key={p.title}
+              href={p.link}
+              className={styles.projectCard}
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
+              <ExpandOnView direction="bottom" duration={800} className={styles.imgBox}>
                 <Image
                   src={p.image}
                   alt={p.title}
@@ -53,7 +58,7 @@ export default function ProjectCards() {
                     View Details <i className="caseicon-long-arrow-right" />
                   </span>
                 </div>
-              </div>
+              </ExpandOnView>
               <div className={styles.captionBox}>
                 <h3 className={styles.cardTitle}>{p.title}</h3>
               </div>

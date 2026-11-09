@@ -44,8 +44,13 @@ export default function ContactGrid() {
     <section className={styles.section}>
       <Container className={styles.container}>
         <div className={styles.grid}>
-          {CHANNELS.map((ch) => (
-            <div key={ch.title} className={styles.channelCard}>
+          {CHANNELS.map((ch, idx) => (
+            <div
+              key={ch.title}
+              className={styles.channelCard}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+            >
               <div className={styles.iconBox}>
                 <i className={ch.icon} />
               </div>

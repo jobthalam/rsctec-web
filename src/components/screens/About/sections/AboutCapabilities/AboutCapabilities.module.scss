@@ -19,39 +19,7 @@
   }
 }
 
-.header {
-  text-align: center;
-  max-width: 860px;
-  margin: 0 auto 60px auto;
-}
 
-.eyebrow {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: $primary;
-  margin-bottom: $space-sm;
-  display: block;
-}
-
-.title {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 28px;
-  font-weight: 800;
-  color: $foreground;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-
-  @include respond-above(sm) {
-    font-size: 34px;
-  }
-
-  @include respond-above(lg) {
-    font-size: 40px;
-  }
-}
 
 .grid {
   display: grid;
@@ -170,7 +138,7 @@
 }
 
 .featureContent {
-  flex: 1 0 auto;
+  // flex: 1 0 auto;
 }
 
 .featureTitle {

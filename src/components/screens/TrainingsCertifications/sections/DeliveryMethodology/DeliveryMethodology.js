@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import styles from "./DeliveryMethodology.module.scss";
 
 const MODES = [
@@ -25,18 +26,22 @@ export default function DeliveryMethodology() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.subtitle}>Flexible Delivery Models</span>
-          <h2 className={styles.title}>Tailored for Enterprise Engineering Teams</h2>
-          <p className={styles.description}>
-            We train developers, sysadmins, SOC analysts, and compliance leads with curriculum
-            aligned directly to real-world threats and statutory requirements.
-          </p>
-        </div>
+        <SectionHeader
+          subtitle="Flexible Delivery Models"
+          title="Tailored for Enterprise Engineering Teams"
+          description="We train developers, sysadmins, SOC analysts, and compliance leads with curriculum aligned directly to real-world threats and statutory requirements."
+          variant="dark"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
-          {MODES.map((m) => (
-            <div key={m.title} className={styles.card}>
+          {MODES.map((m, idx) => (
+            <div
+              key={m.title}
+              className={styles.card}
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
               <div className={styles.iconBox}>
                 <i className={m.icon} />
               </div>
@@ -46,7 +51,7 @@ export default function DeliveryMethodology() {
           ))}
         </div>
 
-        <div className={styles.ctaBox}>
+        <div className={styles.ctaBox} data-aos="zoom-in-up">
           <div className={styles.ctaText}>
             <h3>Need a Custom Corporate Training Batch?</h3>
             <p>

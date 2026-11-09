@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
+import ExpandOnView from "@/components/common/ExpandOnView/ExpandOnView";
 import styles from "./AboutProtection.module.scss";
 
 const CHECKLIST_ITEMS = [
@@ -17,17 +19,15 @@ export default function AboutProtection() {
       <Container className={styles.container}>
         <div className={styles.grid}>
           {/* Left Text & Checklist Column */}
-          <div className={styles.contentCol}>
-            <span className={styles.eyebrow}>MAXIMUM PROTECTION</span>
-            <h2 className={styles.title}>
-              Cybersecurity Solutions for Complete Digital Safety
-            </h2>
-            <p className={styles.description}>
-              Safeguard your firm with our comprehensive cybersecurity services. We
-              protect your data, networks, and cloud infrastructure using advanced
-              threat detection, proactive defense strategies, and rapid incident
-              response — ensuring peace of mind in an increasingly hostile digital world.
-            </p>
+          <div className={styles.contentCol} data-aos="fade-right">
+            <SectionHeader
+              subtitle="MAXIMUM PROTECTION"
+              title="Cybersecurity Solutions for Complete Digital Safety"
+              description="Safeguard your firm with our comprehensive cybersecurity services. We protect your data, networks, and cloud infrastructure using advanced threat detection, proactive defense strategies, and rapid incident response — ensuring peace of mind in an increasingly hostile digital world."
+              variant="dark"
+              alignment="left"
+              className={styles.sectionHeader}
+            />
 
             <ul className={styles.checklist}>
               {CHECKLIST_ITEMS.map((item, idx) => (
@@ -49,7 +49,7 @@ export default function AboutProtection() {
 
           {/* Right SOC Monitor Visual */}
           <div className={styles.visualCol}>
-            <div className={styles.socImageCard}>
+            <ExpandOnView direction="right" duration={850} className={styles.socImageCard}>
               <Image
                 src="/images/about/team-bg1.jpg"
                 alt="24/7 Security Operations Center Monitoring"
@@ -57,7 +57,7 @@ export default function AboutProtection() {
                 height={480}
                 className={styles.socImg}
               />
-            </div>
+            </ExpandOnView>
           </div>
         </div>
       </Container>

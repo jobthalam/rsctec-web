@@ -1,11 +1,23 @@
 .section {
-  background-color: $dark-background;
-  padding: 40px 0 80px 0;
   position: relative;
+  background: radial-gradient(
+      circle at 10% 20%,
+      rgba(157, 28, 140, 0.04) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(71, 3, 94, 0.03) 100%
+    ),
+    #ffffff;
+  padding: 60px 0 80px 0;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 80px 0 100px 0;
+  }
 }
 
 .container {
-  max-width: 980px;
+  max-width: 1240px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 $space-md;
 
@@ -14,39 +26,21 @@
   }
 }
 
-.formCard {
-  background-color: $surface-dark;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 40px 24px;
+.header {
+  margin-bottom: 36px;
 
   @include respond-above(md) {
-    padding: 50px 48px;
+    margin-bottom: 48px;
   }
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.subtitle {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: $primary;
-  display: block;
-  margin-bottom: $space-xs;
 }
 
 .title {
   font-family: var(--font-secondary), sans-serif;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  color: $foreground-light;
-  margin-bottom: $space-sm;
+  color: #111013;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
 
   @include respond-above(md) {
     font-size: 36px;
@@ -56,23 +50,44 @@
 .description {
   font-family: var(--font-primary), sans-serif;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 620px;
-  margin: 0 auto;
+  line-height: 1.6;
+  color: #555566;
+  max-width: 680px;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: start;
+
+  @include respond-above(lg) {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.infoCol {
+  width: 100%;
+}
+
+.formCol {
+  width: 100%;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
 
-  @include respond-above(md) {
+  @include respond-above(sm) {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -80,109 +95,81 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 
   label {
-    font-family: var(--font-secondary), sans-serif;
+    font-family: var(--font-primary), sans-serif;
     font-size: 13px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
+    color: #222233;
   }
 
   input,
   select,
   textarea {
     width: 100%;
-    background-color: $dark-background;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 10px;
+    background-color: #f1f3f7;
+    border: 1px solid transparent;
+    border-radius: $radius-md;
     padding: 12px 16px;
-    font-family: var(--font-primary), sans-serif;
     font-size: 14px;
-    color: #ffffff;
-    outline: none;
-    transition: border-color $transition-fast;
-
-    &:focus {
-      border-color: $primary;
-    }
+    color: #111013;
+    font-family: var(--font-primary), sans-serif;
+    transition: all $transition-fast;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.35);
+      color: #8c93a3;
+    }
+
+    &:focus {
+      background-color: #ffffff;
+      border-color: $primary;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(157, 28, 140, 0.12);
     }
   }
 
   select {
     cursor: pointer;
-
-    option {
-      background-color: $dark-background;
-      color: #ffffff;
-    }
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555566' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
   }
 
   textarea {
     resize: vertical;
-  }
-}
-
-.consentBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-  background-color: rgba($primary, 0.06);
-  border: 1px solid rgba($primary, 0.2);
-  border-radius: 12px;
-}
-
-.checkboxLabel {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
-
-  input[type="checkbox"] {
-    margin-top: 3px;
-    width: 16px;
-    height: 16px;
-    accent-color: $primary;
-    cursor: pointer;
-  }
-
-  span {
-    font-family: var(--font-primary), sans-serif;
-    font-size: 13px;
+    min-height: 100px;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
-
-    strong {
-      color: #ffffff;
-    }
   }
 }
 
 .submitBtn {
-  @include flexCenter;
-  width: 100%;
-  padding: 14px 28px;
-  background-image: $gradient-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 14px 32px;
+  background-color: $primary;
+  color: $foreground-light;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: $radius-md;
   border: none;
-  border-radius: 10px;
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
   cursor: pointer;
-  transition: opacity $transition-fast, filter $transition-fast;
+  transition: all $transition-fast;
   margin-top: 8px;
 
   &:hover:not(:disabled) {
-    filter: brightness(1.1);
+    background-color: $primary-hover;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(157, 28, 140, 0.25);
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.55;
     cursor: not-allowed;
   }
 }

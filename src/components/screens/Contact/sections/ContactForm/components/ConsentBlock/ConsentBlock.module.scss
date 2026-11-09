@@ -1,36 +1,73 @@
 .consentBlock {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 18px;
-  background-color: rgba($primary, 0.06);
-  border: 1px solid rgba($primary, 0.2);
-  border-radius: 12px;
+  gap: 14px;
+  padding: 18px 20px;
+  background-color: #f7f8fc;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: $radius-md;
+  margin-top: 8px;
+}
+
+.noticeText {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #555566;
+  margin: 0;
+}
+
+.emailLink,
+.privacyLink {
+  color: $primary;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .checkboxLabel {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
 
   input[type="checkbox"] {
-    margin-top: 3px;
-    width: 16px;
-    height: 16px;
+    margin-top: 2px;
+    width: 17px;
+    height: 17px;
     accent-color: $primary;
     cursor: pointer;
+    flex-shrink: 0;
   }
+}
 
-  span {
-    font-family: var(--font-primary), sans-serif;
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
+.labelSpan {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #222233;
+}
 
-    strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
-  }
+.requiredMark {
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.optionalMark {
+  color: #777788;
+  font-weight: 500;
+  font-size: 12px;
 }

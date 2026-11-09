@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./ConsentBlock.module.scss";
 
 export default function ConsentBlock({
@@ -8,33 +9,49 @@ export default function ConsentBlock({
 }) {
   return (
     <div className={styles.consentBlock}>
-      <label className={styles.checkboxLabel}>
-        <input
-          type="checkbox"
-          name="dpdpaConsent"
-          checked={dpdpaConsent}
-          onChange={onChange}
-          required
-        />
-        <span>
-          <strong>Statutory DPDPA Consent:</strong> I agree to RS Consulting
-          processing my contact info solely for responding to this inquiry in
-          compliance with the DPDP Act, 2023. *
-        </span>
-      </label>
+      <p className={styles.noticeText}>
+        RSC Techasist Private Limited (RS Consulting) will use the details you provide only to
+        respond to your enquiry and share information about the services you selected. We keep this
+        data for 12 months unless you become a client. You can request access, correction or
+        deletion, or withdraw consent, at any time by writing to{" "}
+        <a href="mailto:grievance@rsctec.com" className={styles.emailLink}>
+          grievance@rsctec.com
+        </a>
+        . See our{" "}
+        <Link href="/contact#grievance" className={styles.privacyLink}>
+          Privacy Policy
+        </Link>
+        .
+      </p>
 
-      <label className={styles.checkboxLabel}>
-        <input
-          type="checkbox"
-          name="newsletter"
-          checked={newsletter}
-          onChange={onChange}
-        />
-        <span>
-          Keep me informed about periodic regulatory infosec updates and DPDPA
-          advisories.
-        </span>
-      </label>
+      <div className={styles.checkboxGroup}>
+        <label className={styles.checkboxLabel}>
+          <input
+            type="checkbox"
+            name="dpdpaConsent"
+            checked={dpdpaConsent}
+            onChange={onChange}
+            required
+          />
+          <span className={styles.labelSpan}>
+            I agree to RS Consulting contacting me about my enquiry.{" "}
+            <span className={styles.requiredMark}>(required)</span>
+          </span>
+        </label>
+
+        <label className={styles.checkboxLabel}>
+          <input
+            type="checkbox"
+            name="newsletter"
+            checked={newsletter}
+            onChange={onChange}
+          />
+          <span className={styles.labelSpan}>
+            Send me occasional updates on data protection and cybersecurity.{" "}
+            <span className={styles.optionalMark}>(optional)</span>
+          </span>
+        </label>
+      </div>
     </div>
   );
 }

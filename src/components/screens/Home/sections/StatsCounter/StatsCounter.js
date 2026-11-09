@@ -14,8 +14,13 @@ export default function StatsCounter() {
     <section className={styles.section}>
       <Container className={styles.container}>
         <div className={styles.grid}>
-          {STATS.map((s) => (
-            <div key={s.label} className={styles.statItem}>
+          {STATS.map((s, idx) => (
+            <div
+              key={s.label}
+              className={styles.statItem}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+            >
               <div className={styles.iconCircle}>
                 <i className={s.icon} />
               </div>

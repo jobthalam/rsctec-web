@@ -74,12 +74,17 @@
   flex-direction: column;
   transition: border-color $transition-default;
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     border-color: rgba($primary, 0.5);
 
     .bgIconImg {
       transform: rotate(-4deg) scale(1.5);
+    }
+
+    .learnMoreBtn {
+      background-color: $primary !important;
     }
   }
 }
@@ -167,5 +172,6 @@
 
   &:hover {
     filter: brightness(1.1);
+    background-color: $primary;
   }
 }

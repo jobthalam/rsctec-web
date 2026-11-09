@@ -15,35 +15,7 @@
   }
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 55px;
-}
 
-.subtitle {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: $primary;
-  display: block;
-  margin-bottom: $space-sm;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: $foreground;
-  letter-spacing: -0.015em;
-  max-width: 820px;
-  margin: 0 auto;
-
-  @include respond-above(md) {
-    font-size: 44px;
-  }
-}
 
 .row {
   display: grid;

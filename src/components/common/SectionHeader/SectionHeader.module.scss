@@ -1,0 +1,115 @@
+.header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 60px;
+
+  &.center {
+    text-align: center;
+
+    .subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &.left {
+    text-align: left;
+
+    .subtitle {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .title {
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .description {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  &.right {
+    text-align: right;
+
+    .subtitle {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .title {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .description {
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+}
+
+.subtitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $primary;
+  display: block;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: $space-md;
+
+  @include respond-above(md) {
+    font-size: 46px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+// Dark variant (for dark background sections)
+.dark {
+  .title {
+    color: $foreground-light;
+  }
+
+  .description {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+// Light variant (for white / light background sections)
+.light {
+  .title {
+    color: $foreground;
+  }
+
+  .description {
+    color: $text-muted;
+  }
+}

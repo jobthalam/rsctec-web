@@ -36,39 +36,7 @@
   flex-direction: column;
 }
 
-.eyebrow {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: $primary;
-  margin-bottom: $space-sm;
-}
-
-.title {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 30px;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.22;
-  letter-spacing: -0.01em;
-  margin-bottom: 18px;
-
-  @include respond-above(md) {
-    font-size: 38px;
-  }
-
-  @include respond-above(xl) {
-    font-size: 42px;
-  }
-}
-
-.description {
-  font-family: var(--font-primary), sans-serif;
-  font-size: 15px;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.72);
+.sectionHeader {
   margin-bottom: 24px;
 }
 

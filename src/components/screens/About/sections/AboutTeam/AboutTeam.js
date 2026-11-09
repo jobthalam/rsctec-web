@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import styles from "./AboutTeam.module.scss";
 import { ABOUT_TEAM } from "@/constants/constants";
 
@@ -9,20 +10,22 @@ export default function AboutTeam() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.eyebrow}>OUR TEAM</span>
-          <h2 className={styles.title}>
-            Complete Cyber Defense Against Modern Attacks
-          </h2>
-          <p className={styles.subtitle}>
-            Led by certified practitioners with over four decades of collective
-            information security leadership and battle-tested industry expertise.
-          </p>
-        </div>
+        <SectionHeader
+          subtitle="OUR TEAM"
+          title="Complete Cyber Defense Against Modern Attacks"
+          description="Led by certified practitioners with over four decades of collective information security leadership and battle-tested industry expertise."
+          variant="light"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
-          {ABOUT_TEAM.map((member) => (
-            <div key={member.name} className={styles.card}>
+          {ABOUT_TEAM.map((member, idx) => (
+            <div
+              key={member.name}
+              className={styles.card}
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
               <div className={styles.imageWrapper}>
                 <Image
                   src={member.img}

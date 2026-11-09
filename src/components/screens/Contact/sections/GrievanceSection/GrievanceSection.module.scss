@@ -26,42 +26,7 @@
   }
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-}
 
-.subtitle {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  color: $primary;
-  display: block;
-  margin-bottom: $space-xs;
-}
-
-.title {
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: $foreground-light;
-  margin-bottom: $space-sm;
-
-  @include respond-above(md) {
-    font-size: 34px;
-  }
-}
-
-.description {
-  font-family: var(--font-primary), sans-serif;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 .grid {
   display: grid;

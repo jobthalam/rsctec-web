@@ -73,7 +73,11 @@ export default function Header() {
 
         <div className={styles.navBar}>
           <Container className={styles.navBarInner}>
-            <Link href="/" className={styles.logo} aria-label="RS Consulting Home">
+            <Link
+              href="/"
+              className={styles.logo}
+              aria-label="RS Consulting Home"
+            >
               <Image
                 src="/logo/logo.png"
                 alt="RS Consulting"
@@ -87,15 +91,7 @@ export default function Header() {
             <DesktopNav />
 
             <div className={styles.actions}>
-              <Button
-                href="/solutions"
-                variant="outline"
-                size="sm"
-                className={styles.startFreeBtn}
-              >
-                Explore Solutions
-              </Button>
-              <Button href="/contact" variant="primary" size="sm">
+              <Button href="/contact" variant="primary">
                 Get in Touch
               </Button>
 
@@ -121,4 +117,3 @@ export default function Header() {
     </>
   );
 }
-

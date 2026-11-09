@@ -1,0 +1,198 @@
+.section {
+  background-color: #ffffff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 100px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.packagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 50px;
+  align-items: stretch;
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pkgCard {
+  background-color: #f8f8fb;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 38px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform $transition-fast, box-shadow $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  &.popular {
+    background-color: #ffffff;
+    border: 2px solid $primary;
+    box-shadow: 0 16px 40px rgba(157, 28, 140, 0.12);
+  }
+}
+
+.popularRibbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: $gradient-primary;
+  color: #ffffff;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(157, 28, 140, 0.4);
+}
+
+.cardTop {
+  margin-bottom: 24px;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $primary;
+  background-color: rgba(157, 28, 140, 0.1);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.tierName {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #111013;
+  margin: 0 0 8px 0;
+}
+
+.bestFor {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+
+  strong {
+    color: #111013;
+  }
+}
+
+.includesBox {
+  flex-grow: 1;
+  margin-bottom: 30px;
+}
+
+.includesTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #777777;
+  margin: 0 0 14px 0;
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.incItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #444444;
+
+  i {
+    color: #16a34a;
+    font-size: 12px;
+    margin-top: 4px;
+    min-width: 14px;
+  }
+}
+
+.cardBottom {
+  display: flex;
+}
+
+.primaryBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background-image: $gradient-primary;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(157, 28, 140, 0.4);
+  }
+}
+
+.secondaryBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111013;
+  text-decoration: none;
+  transition: border-color $transition-fast, color $transition-fast;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+}

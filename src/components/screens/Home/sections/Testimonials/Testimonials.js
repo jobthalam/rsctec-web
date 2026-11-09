@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import styles from "./Testimonials.module.scss";
 
 const REVIEWS = [
@@ -31,18 +32,22 @@ export default function Testimonials() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.subtitle}>Testimonials</span>
-          <h2 className={styles.title}>Hear It from Our Happy Customers</h2>
-          <p className={styles.description}>
-            See how our cybersecurity solutions have helped businesses stay
-            secure, compliant, and resilient against evolving digital threats.
-          </p>
-        </div>
+        <SectionHeader
+          subtitle="Testimonials"
+          title="Hear It from Our Happy Customers"
+          description="See how our cybersecurity solutions have helped businesses stay secure, compliant, and resilient against evolving digital threats."
+          variant="light"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
-          {REVIEWS.map((r) => (
-            <div key={r.name} className={styles.reviewCard}>
+          {REVIEWS.map((r, idx) => (
+            <div
+              key={r.name}
+              className={styles.reviewCard}
+              data-aos="fade-up"
+              data-aos-delay={idx * 120}
+            >
               <div className={styles.cardTop}>
                 <div className={styles.stars}>
                   {[...Array(5)].map((_, i) => (

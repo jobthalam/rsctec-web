@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
+import ExpandOnView from "@/components/common/ExpandOnView/ExpandOnView";
 import styles from "./AboutCapabilities.module.scss";
 import { ABOUT_CAPABILITIES } from "@/constants/constants";
 
@@ -8,18 +10,18 @@ export default function AboutCapabilities() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.eyebrow}>CYBERSECURITY SERVICES</span>
-          <h2 className={styles.title}>
-            Comprehensive Cybersecurity Solutions for Modern Threats
-          </h2>
-        </div>
+        <SectionHeader
+          subtitle="CYBERSECURITY SERVICES"
+          title="Comprehensive Cybersecurity Solutions for Modern Threats"
+          variant="light"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
           {/* Left Overlapping Images with 99.9% Badge */}
           <div className={styles.visualCol}>
             <div className={styles.imageStack}>
-              <div className={styles.mainImgCard}>
+              <ExpandOnView direction="left" duration={850} className={styles.mainImgCard}>
                 <Image
                   src="/images/cyberguard/blog-img9.jpg"
                   alt="Enterprise Security Operations Center"
@@ -33,8 +35,12 @@ export default function AboutCapabilities() {
                     Threat Detection &amp; Prevention Rate
                   </span>
                 </div>
-              </div>
-              <div className={styles.overlapImgCard}>
+              </ExpandOnView>
+              <div
+                className={styles.overlapImgCard}
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
                 <Image
                   src="/images/about/blog-details3.jpg"
                   alt="Hardware-grade Cryptographic Defense"
@@ -48,8 +54,13 @@ export default function AboutCapabilities() {
 
           {/* Right 3 Capabilities Rows */}
           <div className={styles.featuresCol}>
-            {ABOUT_CAPABILITIES.map((cap) => (
-              <div key={cap.title} className={styles.featureRow}>
+            {ABOUT_CAPABILITIES.map((cap, idx) => (
+              <div
+                key={cap.title}
+                className={styles.featureRow}
+                data-aos="fade-left"
+                data-aos-delay={idx * 120}
+              >
                 <div className={styles.iconBox}>
                   <Image
                     src={cap.icon}

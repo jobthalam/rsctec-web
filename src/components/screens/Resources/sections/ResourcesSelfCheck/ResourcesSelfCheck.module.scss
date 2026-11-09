@@ -1,0 +1,193 @@
+.section {
+  background-color: $dark-background;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 100px 0;
+  }
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.checkConsole {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.questionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.questionCard {
+  background-image: linear-gradient($surface 0%, $surface-hover 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: border-color $transition-default;
+
+  @include respond-above(sm) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 30px;
+  }
+
+  &:hover {
+    border-color: rgba($primary, 0.45);
+  }
+}
+
+.qLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex: 1;
+}
+
+.stepNum {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: $primary;
+  background-color: rgba(157, 28, 140, 0.15);
+  padding: 6px 12px;
+  border-radius: 10px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.qText {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: $foreground-light;
+  margin: 0;
+}
+
+.toggleGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.toggleBtn {
+  @include flexCenter;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: $dark-background;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+  }
+
+  &.selectedYes {
+    background-color: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+  }
+
+  &.selectedNo {
+    background-color: $primary;
+    border-color: $primary;
+    color: #ffffff;
+  }
+}
+
+.actionBanner {
+  margin-top: 24px;
+  background-color: $surface-dark-highlight;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include respond-above(md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 40px;
+  }
+}
+
+.bannerText {
+  flex: 1;
+}
+
+.bannerHeading {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: $foreground-light;
+  margin: 0 0 8px 0;
+
+  @include respond-above(md) {
+    font-size: 28px;
+  }
+}
+
+.bannerDesc {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  max-width: 620px;
+}
+
+.bannerBtn {
+  @include flexCenter;
+  gap: 8px;
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 13px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: $radius-sm;
+  color: $foreground-light;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all $transition-default;
+
+  @include respond-above(md) {
+    align-self: center;
+  }
+
+  &:hover {
+    background-color: $foreground-light;
+    color: $dark-background;
+    border-color: $foreground-light;
+  }
+}

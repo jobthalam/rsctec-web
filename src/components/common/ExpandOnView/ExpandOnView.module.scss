@@ -1,0 +1,32 @@
+.wipe {
+  opacity: 0;
+  -webkit-clip-path: var(--wipe-hidden);
+  clip-path: var(--wipe-hidden);
+
+  transition:
+    clip-path var(--wipe-duration) ease var(--wipe-delay),
+    -webkit-clip-path var(--wipe-duration) ease var(--wipe-delay),
+    opacity 0.3s ease var(--wipe-delay);
+
+  // Fallback if clip-path is unsupported
+  @supports not (clip-path: inset(0)) {
+    clip-path: none;
+    -webkit-clip-path: none;
+  }
+
+  &.visible {
+    opacity: 1;
+    -webkit-clip-path: var(--wipe-visible);
+    clip-path: var(--wipe-visible);
+  }
+}
+
+// Accessibility: disable animation for reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .wipe {
+    opacity: 1;
+    clip-path: none;
+    -webkit-clip-path: none;
+    transition: none;
+  }
+}

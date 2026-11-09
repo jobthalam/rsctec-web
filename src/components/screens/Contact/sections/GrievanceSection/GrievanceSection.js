@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import styles from "./GrievanceSection.module.scss";
 import { COMPANY_INFO } from "@/constants/constants";
 
@@ -7,16 +8,14 @@ export default function GrievanceSection() {
   return (
     <section id="grievance" className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.grievanceCard}>
-          <div className={styles.header}>
-            <span className={styles.subtitle}>DPDP Act, 2023 Statutory Compliance</span>
-            <h2 className={styles.title}>Data Principal Grievance Redressal Mechanism</h2>
-            <p className={styles.description}>
-              In accordance with the provisions of Section 8 and Section 13 of the Digital Personal
-              Data Protection Act, 2023, RS Consulting has instituted a transparent and accessible
-              mechanism for Data Principals to exercise their statutory rights and register grievances.
-            </p>
-          </div>
+        <div className={styles.grievanceCard} data-aos="fade-up">
+          <SectionHeader
+            subtitle="DPDP Act, 2023 Statutory Compliance"
+            title="Data Principal Grievance Redressal Mechanism"
+            description="In accordance with the provisions of Section 8 and Section 13 of the Digital Personal Data Protection Act, 2023, RS Consulting has instituted a transparent and accessible mechanism for Data Principals to exercise their statutory rights and register grievances."
+            variant="dark"
+            alignment="center"
+          />
 
           <div className={styles.grid}>
             <div className={styles.infoBox}>

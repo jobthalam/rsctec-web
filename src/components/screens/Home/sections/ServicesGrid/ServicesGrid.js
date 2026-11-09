@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import styles from "./ServicesGrid.module.scss";
 
 const SERVICES = [
@@ -53,21 +54,22 @@ export default function ServicesGrid() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
-        <div className={styles.header}>
-          <span className={styles.subtitle}>What We Deliver</span>
-          <h2 className={styles.title}>
-            Security-Led Cyber Defense & DPDPA Compliance
-          </h2>
-          <p className={styles.description}>
-            We protect Indian businesses from ever-evolving cyber risks and
-            statutory liabilities with engineering-led security controls,
-            continuous assessments, and proven partner technologies.
-          </p>
-        </div>
+        <SectionHeader
+          subtitle="What We Deliver"
+          title="Security-Led Cyber Defense & DPDPA Compliance"
+          description="We protect Indian businesses from ever-evolving cyber risks and statutory liabilities with engineering-led security controls, continuous assessments, and proven partner technologies."
+          variant="dark"
+          alignment="center"
+        />
 
         <div className={styles.grid}>
-          {SERVICES.map((s) => (
-            <div key={s.title} className={styles.card}>
+          {SERVICES.map((s, idx) => (
+            <div
+              key={s.title}
+              className={styles.card}
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+            >
               <div className={styles.bgIconOverlay} aria-hidden="true">
                 <Image
                   src={s.bgIcon}

@@ -1,14 +1,25 @@
 .desktopNav {
   display: none;
   @include respond-above(lg) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
   }
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 18px;
+
+  @include respond-above(xl) {
+    gap: 28px;
+  }
 }
 
 .menuItem {
@@ -19,11 +30,16 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   padding: $space-sm 0;
+  white-space: nowrap;
   transition: color $transition-fast;
+
+  @include respond-above(xl) {
+    font-size: 15px;
+  }
 
   &:hover {
     color: $primary;

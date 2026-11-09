@@ -11,6 +11,7 @@ import ClientsPartners from "./sections/ClientsPartners/ClientsPartners";
 import ProjectCards from "./sections/ProjectCards/ProjectCards";
 import Testimonials from "./sections/Testimonials/Testimonials";
 import VideoBanner from "./sections/VideoBanner/VideoBanner";
+import DpdpaServicesGrid from "../DpdpaServices/sections/DpdpaServicesGrid/DpdpaServicesGrid";
 
 export default function Home() {
   return (
@@ -19,12 +20,12 @@ export default function Home() {
       <MidBanner />
       <AboutExperts />
       <ClientsPartners />
-      <ServicesGrid />
+      <DpdpaServicesGrid isHome />
       <RibbonMarquee />
       <WhyChooseUs />
       <StatsCounter />
       <ProjectCards />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <VideoBanner />
     </div>
   );

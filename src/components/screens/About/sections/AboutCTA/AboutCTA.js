@@ -9,7 +9,7 @@ export default function AboutCTA() {
       <div className={styles.watermark} />
       <Container className={styles.container}>
         <div className={styles.contentWrap}>
-          <div className={styles.textCol}>
+          <div className={styles.textCol} data-aos="fade-right">
             <h2 className={styles.headline}>
               Need 24/7 Protection From Cyber Attacks?
             </h2>
@@ -17,7 +17,7 @@ export default function AboutCTA() {
               Connect directly with our senior cybersecurity advisors and assess your exposure today.
             </p>
           </div>
-          <div className={styles.btnCol}>
+          <div className={styles.btnCol} data-aos="fade-left">
             <Link href="/contact" className={styles.ctaBtn}>
               Book Free Consultation
             </Link>
