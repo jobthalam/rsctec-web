@@ -59,8 +59,9 @@ export default function ServicesGrid() {
             Security-Led Cyber Defense & DPDPA Compliance
           </h2>
           <p className={styles.description}>
-            We protect Indian businesses from ever-evolving cyber risks and statutory liabilities
-            with engineering-led security controls, continuous assessments, and proven partner technologies.
+            We protect Indian businesses from ever-evolving cyber risks and
+            statutory liabilities with engineering-led security controls,
+            continuous assessments, and proven partner technologies.
           </p>
         </div>
 
@@ -90,7 +91,7 @@ export default function ServicesGrid() {
               <h3 className={styles.cardTitle}>{s.title}</h3>
               <p className={styles.cardDesc}>{s.desc}</p>
               <Link href={s.link} className={styles.learnMoreBtn}>
-                Learn More
+                Learn more &rarr;
               </Link>
             </div>
           ))}

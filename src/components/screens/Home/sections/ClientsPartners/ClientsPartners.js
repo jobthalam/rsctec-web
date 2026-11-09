@@ -23,7 +23,7 @@ export default function ClientsPartners() {
         <div className={styles.group}>
           <div className={styles.groupHeader}>
             <div className={styles.groupTitleWrap}>
-              <h3 className={styles.groupTitle}>OUR GLOBAL PARTNERS</h3>
+              <h3 className={styles.groupTitle}>OUR GLOBAL TECHNOLOGY PARTNERS</h3>
             </div>
           </div>
           <MarqueeRow items={PARTNER_LOGOS} reverse />

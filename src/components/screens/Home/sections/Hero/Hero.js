@@ -48,14 +48,11 @@ export default function Hero() {
       <Container className={styles.container}>
         <div className={styles.content}>
           <div className={styles.subtitleWrapper}>
-            <span className={styles.subtitle}>
-              DPDP Act, 2023 · Full Compliance Due 13 May 2027
-            </span>
+            <span className={styles.subtitle}>We Are Here For</span>
           </div>
 
           <h1 className={styles.title}>
-            Delivering Ingenious Perspective to Your Information Security & Data
-            Protection
+            Delivering ingenious perspective to your information security
           </h1>
 
           <p className={styles.description}>
