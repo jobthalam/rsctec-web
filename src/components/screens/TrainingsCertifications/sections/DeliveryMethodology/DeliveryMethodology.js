@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./DeliveryMethodology.module.scss";
 
 const MODES = [
@@ -23,7 +24,7 @@ const MODES = [
 export default function DeliveryMethodology() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Flexible Delivery Models</span>
           <h2 className={styles.title}>Tailored for Enterprise Engineering Teams</h2>
@@ -57,7 +58,7 @@ export default function DeliveryMethodology() {
             Request Corporate Training Proposal
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

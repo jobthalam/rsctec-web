@@ -1,0 +1,187 @@
+.section {
+  background-color: #ffffff;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 110px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+
+  @include respond-above(lg) {
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 60px;
+  }
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $primary;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: $foreground;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+
+  @include respond-above(md) {
+    font-size: 40px;
+  }
+
+  @include respond-above(xl) {
+    font-size: 44px;
+  }
+}
+
+.lead {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f212d;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.paragraph {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #555869;
+  margin-bottom: 28px;
+}
+
+.btnRow {
+  display: flex;
+}
+
+.primaryBtn {
+  @include flexCenter;
+  display: inline-flex;
+  padding: 14px 32px;
+  background-image: $gradient-primary;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.94;
+  }
+}
+
+.visualCol {
+  position: relative;
+}
+
+.imageGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+
+  @include respond-above(sm) {
+    gap: 20px;
+  }
+}
+
+.imgCardLeft {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.imgCardRight {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.featureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.expBadge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 18px 24px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 2;
+  min-width: 135px;
+
+  @include respond-above(sm) {
+    padding: 22px 30px;
+    min-width: 160px;
+  }
+}
+
+.expNumber {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  color: $foreground;
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+
+  @include respond-above(sm) {
+    font-size: 48px;
+  }
+}
+
+.expLabel {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #636677;
+  display: block;
+  line-height: 1.3;
+}

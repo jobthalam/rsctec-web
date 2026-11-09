@@ -1,0 +1,146 @@
+.section {
+  background-color: $dark-background;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 110px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+
+  @include respond-above(lg) {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 65px;
+  }
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $primary;
+  margin-bottom: $space-sm;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+
+  @include respond-above(md) {
+    font-size: 38px;
+  }
+
+  @include respond-above(xl) {
+    font-size: 42px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 24px;
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checkIcon {
+  @include flexCenter;
+  width: 22px;
+  height: 22px;
+  border-radius: $radius-full;
+  background-color: rgba($primary, 0.18);
+  color: $primary;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.checkText {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btnRow {
+  display: flex;
+}
+
+.primaryBtn {
+  @include flexCenter;
+  display: inline-flex;
+  padding: 14px 32px;
+  background-image: $gradient-primary;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.94;
+  }
+}
+
+.visualCol {
+  position: relative;
+}
+
+.socImageCard {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

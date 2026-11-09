@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Container from "@/components/ui/Container/Container";
 import styles from "./Hero.module.scss";
 
 const HERO_FEATURES = [
@@ -44,40 +45,35 @@ export default function Hero() {
       </video>
       <div className={styles.videoOverlay} />
       <div className={styles.overlay} />
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.content}>
           <div className={styles.subtitleWrapper}>
-            <span className={styles.subtitle}>Officially Certified</span>
+            <span className={styles.subtitle}>
+              DPDP Act, 2023 · Full Compliance Due 13 May 2027
+            </span>
           </div>
 
           <h1 className={styles.title}>
-            Advanced Cybersecurity Solutions to Safeguard Your Business
+            Delivering Ingenious Perspective to Your Information Security & Data
+            Protection
           </h1>
 
           <p className={styles.description}>
-            We secure your digital ecosystem with certified expertise, delivering
-            proactive defense, resilience, and compliance for a safer future.
+            RS Consulting helps Indian businesses become DPDPA-ready and
+            cyber-resilient by securing the systems that hold personal data, not
+            just the paperwork around it.
           </p>
 
-          <div className={styles.featuresRow}>
-            {HERO_FEATURES.map((item) => (
-              <div key={item.title} className={styles.featureItem}>
-                <div className={styles.iconBox}>
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    width={70}
-                    height={70}
-                    className={styles.iconImg}
-                    priority
-                  />
-                </div>
-                <h4 className={styles.featureTitle}>{item.title}</h4>
-              </div>
-            ))}
+          <div className={styles.ctaRow}>
+            <a href="/contact" className={styles.primaryBtn}>
+              Book a Free DPDPA Readiness Assessment
+            </a>
+            <a href="/solutions" className={styles.secondaryBtn}>
+              Explore Solutions
+            </a>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

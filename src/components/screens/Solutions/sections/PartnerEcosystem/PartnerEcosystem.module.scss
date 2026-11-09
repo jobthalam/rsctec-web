@@ -67,7 +67,7 @@
   transition: border-color $transition-fast;
 
   &:hover {
-    border-color: rgba(74, 129, 211, 0.4);
+    border-color: rgba($primary, 0.4);
   }
 
   @include respond-above(md) {
@@ -141,7 +141,7 @@
 }
 
 .dpdpaCallout {
-  background-color: rgba(74, 129, 211, 0.08);
+  background-color: rgba($primary, 0.08);
   border-left: 3px solid $primary;
   border-radius: 4px;
   padding: 12px 18px;

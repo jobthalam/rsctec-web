@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./MobileNav.module.scss";
 import { NAVIGATION_LINKS, COMPANY_INFO } from "@/constants/constants";
 import Button from "@/components/ui/Button/Button";
@@ -30,9 +31,15 @@ export default function MobileNav({ isOpen, onClose }) {
     <div className={styles.overlay} onClick={onClose} role="dialog" aria-modal="true">
       <div className={styles.drawer} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <div className={styles.brand}>
-            <span className={styles.brandAccent}>RS</span> Consulting
-          </div>
+          <Link href="/" className={styles.brand} onClick={onClose} aria-label="RS Consulting Home">
+            <Image
+              src="/logo/logo.png"
+              alt="RS Consulting"
+              width={130}
+              height={58}
+              className={styles.mobileLogoImg}
+            />
+          </Link>
           <button
             type="button"
             className={styles.closeBtn}

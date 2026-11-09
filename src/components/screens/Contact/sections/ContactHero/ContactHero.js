@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./ContactHero.module.scss";
 
 export default function ContactHero() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.breadcrumb}>
           <Link href="/" className={styles.breadcrumbLink}>
             Home
@@ -22,7 +23,7 @@ export default function ContactHero() {
           Speak directly with our senior security advisors, request a technical assessment, or
           engage our compliance team to begin your statutory DPDPA readiness journey.
         </p>
-      </div>
+      </Container>
     </section>
   );
 }

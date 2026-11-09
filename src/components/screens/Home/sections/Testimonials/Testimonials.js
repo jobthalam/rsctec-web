@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Container from "@/components/ui/Container/Container";
 import styles from "./Testimonials.module.scss";
 
 const REVIEWS = [
@@ -29,7 +30,7 @@ const REVIEWS = [
 export default function Testimonials() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Testimonials</span>
           <h2 className={styles.title}>Hear It from Our Happy Customers</h2>
@@ -71,7 +72,7 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

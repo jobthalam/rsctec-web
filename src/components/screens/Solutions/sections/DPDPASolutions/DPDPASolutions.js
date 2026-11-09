@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./DPDPASolutions.module.scss";
 
 const PHASES = [
@@ -28,7 +29,7 @@ const PHASES = [
 export default function DPDPASolutions() {
   return (
     <section id="dpdpa" className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.warningBanner}>
           <div className={styles.warningIcon}>
             <i className="fas fa-exclamation-triangle" />
@@ -71,7 +72,7 @@ export default function DPDPASolutions() {
             Book DPDPA Readiness Audit
           </Link>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

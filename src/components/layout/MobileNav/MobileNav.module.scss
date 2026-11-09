@@ -33,14 +33,17 @@
 }
 
 .brand {
-  font-family: var(--font-primary), sans-serif;
-  font-size: $text-xl;
-  font-weight: 700;
-  color: $foreground-light;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.brandAccent {
-  color: $primary;
+.mobileLogoImg {
+  height: 40px;
+  width: auto;
+  max-width: 135px;
+  object-fit: contain;
+  display: block;
 }
 
 .closeBtn {

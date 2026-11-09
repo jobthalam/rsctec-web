@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./PartnerEcosystem.module.scss";
 
 const PARTNER_SOLUTIONS = [
@@ -73,7 +74,7 @@ const PARTNER_SOLUTIONS = [
 export default function PartnerEcosystem() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Verified Partner Technologies</span>
           <h2 className={styles.title}>Integrated Defense-in-Depth Architecture</h2>
@@ -112,7 +113,7 @@ export default function PartnerEcosystem() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./TrainingsHero.module.scss";
 
 export default function TrainingsHero() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.breadcrumb}>
           <Link href="/" className={styles.breadcrumbLink}>
             Home
@@ -22,7 +23,7 @@ export default function TrainingsHero() {
           Hands-on technical certifications, offensive security bootcamps, and executive DPDPA
           masterclasses designed by seasoned practitioners with 40+ years of collective field experience.
         </p>
-      </div>
+      </Container>
     </section>
   );
 }

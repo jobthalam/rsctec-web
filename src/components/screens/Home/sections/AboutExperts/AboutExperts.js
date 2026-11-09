@@ -1,23 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./AboutExperts.module.scss";
 
 const CHECK_POINTS = [
-  "24/7 threat monitoring and response",
-  "Advanced protection against malware and ransomware",
-  "Customized security solutions for your business",
-  "Compliance-ready and future-proof defense strategies",
+  "Security-led, not paperwork-led: We implement technical controls, not just policies",
+  "Proven track record across banking, payments, and highly regulated fintech",
+  "Continuous vulnerability management, VAPT, and CIS configuration benchmarks",
+  "End-to-end DPDPA gap assessment, consent architecture, DPIA, and breach readiness",
 ];
 
 export default function AboutExperts() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.subtitle}>Cybersecurity Experts</span>
+          <span className={styles.subtitle}>About RS Consulting</span>
           <h2 className={styles.title}>
-            Comprehensive Cybersecurity Solutions for Modern Threats
+            Delivering Ingenious Perspective to Enterprise Cyber Resilience
           </h2>
         </div>
 
@@ -45,9 +46,9 @@ export default function AboutExperts() {
               </div>
 
               <div className={styles.statBadge}>
-                <span className={styles.statNumber}>99.9%</span>
+                <span className={styles.statNumber}>40+</span>
                 <span className={styles.statLabel}>
-                  Threat detection and prevention rate
+                  Years collective team leadership experience
                 </span>
               </div>
             </div>
@@ -55,11 +56,10 @@ export default function AboutExperts() {
 
           <div className={styles.contentCol}>
             <p className={styles.description}>
-              For over 15 years, we’ve been safeguarding organizations from evolving
-              cyber threats. Our team of experts provides end-to-end security
-              solutions — from proactive threat detection and vulnerability assessments
-              to rapid incident response — ensuring your data, systems, and
-              reputation remain fully protected in an ever-changing digital landscape.
+              RS Consulting (RSC Techasist Private Limited) delivers pure-play Information Security,
+              Cyber Risk Management, and security-led DPDPA compliance. With over four decades of
+              collective team leadership across banking, payments, and technology, we don&apos;t stop
+              at paperwork—we implement the technical controls that keep your enterprise resilient.
             </p>
 
             <ul className={styles.checkList}>
@@ -78,7 +78,7 @@ export default function AboutExperts() {
             </Link>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

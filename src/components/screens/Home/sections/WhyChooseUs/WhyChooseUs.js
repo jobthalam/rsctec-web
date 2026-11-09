@@ -1,19 +1,20 @@
 import React from "react";
 import Image from "next/image";
+import Container from "@/components/ui/Container/Container";
 import styles from "./WhyChooseUs.module.scss";
 
 export default function WhyChooseUs() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.subtitle}>Why Choose Us</span>
+          <span className={styles.subtitle}>Why RS Consulting</span>
           <h2 className={styles.title}>
-            Complete Cyber Defense Against Modern Attacks
+            Security-Led, Not Paperwork-Led Cyber Defense
           </h2>
           <p className={styles.description}>
-            Empower your network with proactive defense strategies, multi-layered
-            threat containment, and automated DPDPA compliance safeguards.
+            We implement the practical technical controls required to satisfy the DPDP Act and
+            protect modern enterprise networks, rather than stopping at checklists.
           </p>
         </div>
 
@@ -22,16 +23,16 @@ export default function WhyChooseUs() {
           <div className={styles.featureCard}>
             <div className={styles.cardContent}>
               <span className={styles.stepNum}>01</span>
-              <h3 className={styles.cardHeading}>Advanced Threat Detection</h3>
+              <h3 className={styles.cardHeading}>Engineering-Led Safeguards</h3>
               <p className={styles.cardText}>
-                Leverage real-time threat intelligence and automated vulnerability
-                scanning to neutralise intrusions before they compromise your systems.
+                From vulnerability mitigation to encrypted file sharing and endpoint MTD, we implement
+                the actual controls the law calls &ldquo;reasonable security safeguards&rdquo;.
               </p>
             </div>
             <div className={styles.cardImgBox}>
               <Image
                 src="/images/cyberguard/s2.jpg"
-                alt="Advanced Threat Detection"
+                alt="Engineering-Led Safeguards"
                 width={260}
                 height={220}
                 className={styles.cardImg}
@@ -43,10 +44,10 @@ export default function WhyChooseUs() {
           <div className={styles.featureCard}>
             <div className={styles.cardContent}>
               <span className={styles.stepNum}>02</span>
-              <h3 className={styles.cardHeading}>Zero Trust Architecture</h3>
+              <h3 className={styles.cardHeading}>4+ Decades Collective Leadership</h3>
               <p className={styles.cardText}>
-                Enforce strict continuous verification, encrypted data sharing,
-                and least-privilege access controls across your entire digital boundary.
+                Specialists in information security and cyber risk with verified experience across
+                banking, payments, healthcare, and high-compliance enterprise sectors.
               </p>
             </div>
             <div className={styles.cardImgBox}>
@@ -60,7 +61,7 @@ export default function WhyChooseUs() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

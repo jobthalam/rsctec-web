@@ -1,11 +1,12 @@
 import React from "react";
+import Container from "@/components/ui/Container/Container";
 import styles from "./GrievanceSection.module.scss";
 import { COMPANY_INFO } from "@/constants/constants";
 
 export default function GrievanceSection() {
   return (
     <section id="grievance" className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.grievanceCard}>
           <div className={styles.header}>
             <span className={styles.subtitle}>DPDP Act, 2023 Statutory Compliance</span>
@@ -43,7 +44,7 @@ export default function GrievanceSection() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

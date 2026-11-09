@@ -1,22 +1,23 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./ProjectCards.module.scss";
 
 const PROJECTS = [
   {
     image: "/images/cyberguard/projects-img6-1000x1000.jpg",
-    title: "Customer Data Protection",
+    title: "Banking, Payments & Fintech",
     link: "/solutions#dpdpa",
   },
   {
     image: "/images/cyberguard/projects-img5-1000x1000.jpg",
-    title: "Remote Workforce Protection",
-    link: "/solutions#cloud",
+    title: "IT/ITES, SaaS & Cloud Platforms",
+    link: "/solutions#backup",
   },
   {
     image: "/images/cyberguard/projects-img4-1000x1000.jpg",
-    title: "Real-Time Threat Detection",
+    title: "Healthcare & Digital Enterprises",
     link: "/solutions#monitoring",
   },
 ];
@@ -24,15 +25,15 @@ const PROJECTS = [
 export default function ProjectCards() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.subtitle}>What We Provide</span>
+          <span className={styles.subtitle}>Sector-Specific Focus</span>
           <h2 className={styles.title}>
-            Robust Cybersecurity Services for Today’s Threats
+            Proven Security & Compliance Across Regulated Sectors
           </h2>
           <p className={styles.description}>
-            Explore our specialized interventions built to safeguard data privacy,
-            secure distributed cloud workforces, and counter advanced cyber threats.
+            The DPDP Act and modern infosec mandates apply across all industries.
+            Explore our specialized security architectures tailored to high-compliance sectors.
           </p>
         </div>
 
@@ -59,7 +60,7 @@ export default function ProjectCards() {
             </Link>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

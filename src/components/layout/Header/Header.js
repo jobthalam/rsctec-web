@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Header.module.scss";
 import Button from "@/components/ui/Button/Button";
+import Container from "@/components/ui/Container/Container";
 import MobileNav from "@/components/layout/MobileNav/MobileNav";
 import TopAnnouncementBar from "@/components/layout/TopAnnouncementBar/TopAnnouncementBar";
 import DesktopNav from "@/components/layout/DesktopNav/DesktopNav";
@@ -70,27 +72,28 @@ export default function Header() {
         </div>
 
         <div className={styles.navBar}>
-          <div className={styles.navBarInner}>
-            <Link href="/" className={styles.logo}>
-              <span className={styles.logoShield}>
-                <i className="fas fa-shield-alt" />
-              </span>
-              <span className={styles.logoText}>
-                <span className={styles.logoBrand}>RS Consulting</span>
-                <span className={styles.logoTagline}>Cyber Risk & Compliance</span>
-              </span>
+          <Container className={styles.navBarInner}>
+            <Link href="/" className={styles.logo} aria-label="RS Consulting Home">
+              <Image
+                src="/logo/logo.png"
+                alt="RS Consulting"
+                width={150}
+                height={69}
+                className={styles.logoImg}
+                priority
+              />
             </Link>
 
             <DesktopNav />
 
             <div className={styles.actions}>
               <Button
-                href="/dpdpa-compliance"
+                href="/solutions"
                 variant="outline"
                 size="sm"
                 className={styles.startFreeBtn}
               >
-                Start For Free
+                Explore Solutions
               </Button>
               <Button href="/contact" variant="primary" size="sm">
                 Get in Touch
@@ -107,7 +110,7 @@ export default function Header() {
                 <span className={styles.burgerLine} />
               </button>
             </div>
-          </div>
+          </Container>
         </div>
       </header>
 

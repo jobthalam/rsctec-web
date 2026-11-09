@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./CourseCatalog.module.scss";
 
 const CATEGORIES = [
@@ -81,7 +82,7 @@ export default function CourseCatalog() {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
           <span className={styles.subtitle}>Curriculum Directory</span>
           <h2 className={styles.title}>Explore Accredited Programs</h2>
@@ -128,7 +129,7 @@ export default function CourseCatalog() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

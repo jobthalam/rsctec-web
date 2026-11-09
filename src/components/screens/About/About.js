@@ -1,17 +1,23 @@
 import React from "react";
 import AboutHero from "./sections/AboutHero/AboutHero";
-import AboutMission from "./sections/AboutMission/AboutMission";
-import AboutValues from "./sections/AboutValues/AboutValues";
-import AboutLeadership from "./sections/AboutLeadership/AboutLeadership";
+import AboutOverview from "./sections/AboutOverview/AboutOverview";
+import AboutMarquee from "./sections/AboutMarquee/AboutMarquee";
+import AboutCapabilities from "./sections/AboutCapabilities/AboutCapabilities";
+import AboutProtection from "./sections/AboutProtection/AboutProtection";
+import AboutTeam from "./sections/AboutTeam/AboutTeam";
+import AboutCTA from "./sections/AboutCTA/AboutCTA";
 import styles from "./About.module.scss";
 
 export default function About() {
   return (
     <main className={styles.aboutPage}>
       <AboutHero />
-      <AboutMission />
-      <AboutValues />
-      <AboutLeadership />
+      <AboutOverview />
+      <AboutMarquee />
+      <AboutCapabilities />
+      <AboutProtection />
+      <AboutTeam />
+      <AboutCTA />
     </main>
   );
 }

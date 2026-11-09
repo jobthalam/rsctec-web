@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Container from "@/components/ui/Container/Container";
 import SuccessState from "./components/SuccessState/SuccessState";
+import ConsentBlock from "./components/ConsentBlock/ConsentBlock";
 import styles from "./ContactForm.module.scss";
 
 export default function ContactForm() {
@@ -54,7 +56,7 @@ export default function ContactForm() {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.formCard}>
           <div className={styles.header}>
             <span className={styles.subtitle}>Direct Consultation Request</span>
@@ -165,33 +167,11 @@ export default function ContactForm() {
                 />
               </div>
 
-              <div className={styles.consentBlock}>
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    name="dpdpaConsent"
-                    checked={formData.dpdpaConsent}
-                    onChange={handleChange}
-                    required
-                  />
-                  <span>
-                    <strong>Statutory DPDPA Consent:</strong> I agree to RS Consulting processing my
-                    contact info solely for responding to this inquiry in compliance with the DPDP Act, 2023. *
-                  </span>
-                </label>
-
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    name="newsletter"
-                    checked={formData.newsletter}
-                    onChange={handleChange}
-                  />
-                  <span>
-                    Keep me informed about periodic regulatory infosec updates and DPDPA advisories.
-                  </span>
-                </label>
-              </div>
+              <ConsentBlock
+                dpdpaConsent={formData.dpdpaConsent}
+                newsletter={formData.newsletter}
+                onChange={handleChange}
+              />
 
               <button
                 type="submit"
@@ -203,7 +183,7 @@ export default function ContactForm() {
             </form>
           )}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

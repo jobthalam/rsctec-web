@@ -168,7 +168,7 @@
   @include flexCenter;
   width: 22px;
   height: 22px;
-  background-color: rgba(74, 129, 211, 0.12);
+  background-color: rgba($primary, 0.12);
   color: $primary;
   border-radius: $radius-full;
   font-size: 13px;

@@ -102,7 +102,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(18, 19, 44, 0.6);
+  background-color: rgba($dark-background, 0.6);
   @include flexCenter;
   opacity: 0;
   transition: opacity $transition-fast;

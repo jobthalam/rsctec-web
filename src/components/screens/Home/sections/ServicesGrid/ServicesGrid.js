@@ -1,66 +1,66 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./ServicesGrid.module.scss";
 
 const SERVICES = [
   {
-    icon: "/images/cyberguard/cyber-security-min-70x70.png",
-    bgIcon: "/images/cyberguard/cyber-security.png",
-    title: "Network Security",
-    desc: "Deploying firewalls and intrusion detection systems to safeguard networks.",
-    link: "/solutions#cyber-security",
-  },
-  {
     icon: "/images/cyberguard/encryption-min-70x70.png",
     bgIcon: "/images/cyberguard/encryption.png",
-    title: "Data Encryption",
-    desc: "Encrypting sensitive data at rest and in transit using advanced encryption.",
-    link: "/solutions#encryption",
+    title: "Data Privacy & DPDPA Compliance",
+    desc: "Assessment, remediation and security controls to meet India's Digital Personal Data Protection Act, delivered by cybersecurity specialists.",
+    link: "/solutions#dpdpa",
+  },
+  {
+    icon: "/images/cyberguard/cyber-security-min-70x70.png",
+    bgIcon: "/images/cyberguard/cyber-security.png",
+    title: "Cyber Risk & VAPT",
+    desc: "Comprehensive web, mobile, and network penetration testing with prioritized risk remediation and vulnerability management.",
+    link: "/solutions#qualys",
   },
   {
     icon: "/images/cyberguard/fingerprint-min-70x70.png",
     bgIcon: "/images/cyberguard/fingerprint.png",
-    title: "Identity & Access",
-    desc: "Managing user identities and access with MFA and detailed role-based control.",
-    link: "/solutions#identity",
-  },
-  {
-    icon: "/images/cyberguard/monitoring-min-70x70.png",
-    bgIcon: "/images/cyberguard/monitoring.png",
-    title: "Security Monitoring",
-    desc: "24/7 monitoring with advanced SIEM systems for real-time detection.",
-    link: "/solutions#monitoring",
+    title: "Data Loss Prevention (DLP)",
+    desc: "Preventing sensitive data leaks and insider misuse with SearchInform and OpenText data discovery and classification.",
+    link: "/solutions#searchinform",
   },
   {
     icon: "/images/cyberguard/cloud-storage-min-70x70.png",
     bgIcon: "/images/cyberguard/cloud-storage.png",
-    title: "Backup & Recovery",
-    desc: "Protecting critical data with secure backups and rapid recovery plans.",
+    title: "Cloud Security & Posture",
+    desc: "Hardening AWS, Azure, and hybrid cloud infrastructures against misconfigurations, privilege escalation, and data exposures.",
     link: "/solutions#backup",
   },
   {
     icon: "/images/cyberguard/settings-min-70x70.png",
     bgIcon: "/images/cyberguard/settings.png",
-    title: "Security Configuration",
-    desc: "Hardening systems and applying secure configurations across all infrastructure.",
-    link: "/solutions#configuration",
+    title: "Moving Target Defense (MTD)",
+    desc: "Deterministic neutralization of zero-day memory exploits, fileless malware, and evasive ransomware powered by Morphisec.",
+    link: "/solutions#morphisec",
+  },
+  {
+    icon: "/images/cyberguard/monitoring-min-70x70.png",
+    bgIcon: "/images/cyberguard/monitoring.png",
+    title: "Security Monitoring & SOC",
+    desc: "24/7 SIEM monitoring, threat detection, and rapid incident response aligned with CERT-In and DPDPA statutory timelines.",
+    link: "/solutions#monitoring",
   },
 ];
 
 export default function ServicesGrid() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.subtitle}>What We Provide</span>
+          <span className={styles.subtitle}>What We Deliver</span>
           <h2 className={styles.title}>
-            Robust Cybersecurity Services for Today’s Threats
+            Security-Led Cyber Defense & DPDPA Compliance
           </h2>
           <p className={styles.description}>
-            Protect your business from ever-evolving cyber risks with our
-            end-to-end security solutions, advanced threat detection, and
-            proactive compliance governance.
+            We protect Indian businesses from ever-evolving cyber risks and statutory liabilities
+            with engineering-led security controls, continuous assessments, and proven partner technologies.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export default function ServicesGrid() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Container from "@/components/ui/Container/Container";
 import styles from "./ContactGrid.module.scss";
 import { COMPANY_INFO } from "@/constants/constants";
 
@@ -41,7 +42,7 @@ const CHANNELS = [
 export default function ContactGrid() {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.grid}>
           {CHANNELS.map((ch) => (
             <div key={ch.title} className={styles.channelCard}>
@@ -67,7 +68,7 @@ export default function ContactGrid() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

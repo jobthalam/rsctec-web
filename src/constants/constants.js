@@ -55,3 +55,72 @@ export const FOOTER_LEGAL_LINKS = [
   { label: "Grievance Redressal", href: "/contact#grievance" },
   { label: "Contact Us", href: "/contact" },
 ];
+
+export const CLIENT_LOGOS = [
+  { name: "Disney+ Hotstar", src: "/images/clients-logos/Disney-Hotstar.avif", width: 242, height: 120 },
+  { name: "HDFC Bank", src: "/images/clients-logos/HDFC.avif", width: 284, height: 142 },
+  { name: "PayU Payments", src: "/images/clients-logos/Pay-U.avif", width: 242, height: 120 },
+  { name: "Paytm", src: "/images/clients-logos/PAYTM.avif", width: 242, height: 120 },
+  { name: "Myntra", src: "/images/clients-logos/MYNTRA.avif", width: 242, height: 120 },
+  { name: "LTIMindtree", src: "/images/clients-logos/Mind-Tree.avif", width: 284, height: 142 },
+  { name: "Ujjivan Small Finance Bank", src: "/images/clients-logos/Ujjivan-Small-Finance-Bank.avif", width: 284, height: 142 },
+  { name: "Fincare Small Finance Bank", src: "/images/clients-logos/Fincare.avif", width: 242, height: 120 },
+  { name: "Wibmo (A PayU Co.)", src: "/images/clients-logos/Wibmo.avif", width: 242, height: 120 },
+];
+
+export const PARTNER_LOGOS = [
+  { name: "Akamai Technologies", src: "/images/partner-logos/akamai.avif", width: 290, height: 146 },
+  { name: "Cisco Systems", src: "/images/partner-logos/cisco.avif", width: 242, height: 120 },
+  { name: "Qualys Cloud Security", src: "/images/partner-logos/Qualys.avif", width: 284, height: 142 },
+  { name: "OpenText Cybersecurity", src: "/images/partner-logos/opentext.avif", width: 284, height: 142 },
+  { name: "CyberRes Micro Focus", src: "/images/partner-logos/MF.avif", width: 242, height: 120 },
+  { name: "Morphisec Moving Target Defense", src: "/images/partner-logos/morphisec.avif", width: 242, height: 120 },
+  { name: "CYFIRMA Threat Intelligence", src: "/images/partner-logos/cyfirma.avif", width: 242, height: 120 },
+  { name: "Securely Share", src: "/images/partner-logos/ss.avif", width: 242, height: 120 },
+  { name: "Inspark Technologies", src: "/images/partner-logos/inspark.avif", width: 284, height: 130 },
+];
+
+export const ABOUT_CAPABILITIES = [
+  {
+    title: "Vulnerability Assessment & Pen-Testing",
+    desc: "Identify system weaknesses and misconfigurations before adversaries do, eliminate attack surfaces, and strengthen overall security posture.",
+    icon: "/images/about/padlock-100x100.png",
+  },
+  {
+    title: "Data Protection & DPDPA Compliance",
+    desc: "Safeguard sensitive personal data and business secrets against breaches with advanced encryption, granular access control, and regulatory compliance.",
+    icon: "/images/about/cloud-100x100.png",
+  },
+  {
+    title: "Brand Reputation & Cyber Governance",
+    desc: "Preserve customer trust, investor confidence, and brand integrity through proactive incident response, continuous audit readiness, and risk assurance.",
+    icon: "/images/about/quality-100x100.png",
+  },
+];
+
+export const ABOUT_TEAM = [
+  {
+    name: "R. S. Narayanan",
+    role: "Chief Information Security Consultant",
+    cert: "CISM · CISSP · ISO 27001 LA",
+    img: "/images/about/team-img1.jpg",
+  },
+  {
+    name: "Sarah Johnson",
+    role: "Lead Cyber Threat Analyst",
+    cert: "CEH · OSCP · Cloud Security",
+    img: "/images/about/team-img2.jpg",
+  },
+  {
+    name: "Thomas Bennett",
+    role: "Cloud Security & Architecture Specialist",
+    cert: "CCSP · AWS Security · ISO 42001",
+    img: "/images/about/team-img3.jpg",
+  },
+  {
+    name: "Joshua Henry",
+    role: "Incident Response & SOC Lead",
+    cert: "GCIH · Threat Hunting · DevSecOps",
+    img: "/images/about/team-img4.jpg",
+  },
+];

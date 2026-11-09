@@ -4,7 +4,6 @@
   position: relative;
   scroll-margin-top: 100px;
 }
-
 .container {
   max-width: 1320px;
   margin: 0 auto;
@@ -14,7 +13,6 @@
     padding: 0 $space-xl;
   }
 }
-
 .warningBanner {
   background-color: rgba(254, 196, 44, 0.1);
   border: 1px solid rgba(254, 196, 44, 0.4);
@@ -126,7 +124,7 @@
   font-family: var(--font-secondary), sans-serif;
   font-size: 32px;
   font-weight: 800;
-  color: rgba(74, 129, 211, 0.4);
+  color: rgba($primary, 0.4);
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -148,8 +146,8 @@
 }
 
 .actionBox {
-  background-image: linear-gradient(135deg, #191b36 0%, #222e66 100%);
-  border: 1px solid rgba(74, 129, 211, 0.3);
+  background-image: linear-gradient(135deg, $surface 0%, $surface-hover 100%);
+  border: 1px solid rgba($primary, 0.3);
   border-radius: 18px;
   padding: 36px 30px;
   display: flex;
@@ -184,7 +182,7 @@
 .actionBtn {
   @include flexCenter;
   padding: 13px 28px;
-  background-image: linear-gradient(135deg, #4a81d3 0%, #514a9d 100%);
+  background-image: $gradient-primary;
   border-radius: 10px;
   font-family: var(--font-secondary), sans-serif;
   font-size: 14px;

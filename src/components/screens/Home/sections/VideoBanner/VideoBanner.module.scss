@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(18, 19, 44, 0.75);
+  background-color: rgba($dark-background, 0.75);
 }
 
 .container {
@@ -85,9 +85,54 @@
   font-size: 16px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.8);
-  max-width: 640px;
+  max-width: 680px;
+  margin-bottom: 34px;
 
   @include respond-above(md) {
     font-size: 17px;
+  }
+}
+
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+}
+
+.primaryBtn {
+  @include flexCenter;
+  padding: 13px 28px;
+  background-image: $gradient-primary;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  transition: filter $transition-fast;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.whatsappBtn {
+  @include flexCenter;
+  padding: 13px 26px;
+  background-color: #25d366;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 8px;
+  transition: filter $transition-fast;
+
+  &:hover {
+    filter: brightness(1.1);
   }
 }

@@ -1,0 +1,36 @@
+.consentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  background-color: rgba($primary, 0.06);
+  border: 1px solid rgba($primary, 0.2);
+  border-radius: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    margin-top: 3px;
+    width: 16px;
+    height: 16px;
+    accent-color: $primary;
+    cursor: pointer;
+  }
+
+  span {
+    font-family: var(--font-primary), sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+
+    strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+  }
+}

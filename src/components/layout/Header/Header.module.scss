@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background-color: rgba(18, 19, 44, 0.65);
+  background-color: rgba($dark-background, 0.65);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -21,7 +21,7 @@
   }
 
   &.scrolled {
-    background-color: rgba(18, 19, 44, 0.85);
+    background-color: rgba($dark-background, 0.85);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-bottom-color: rgba(255, 255, 255, 0.12);
@@ -66,39 +66,20 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: $space-sm;
   text-decoration: none;
 }
-.logoShield {
-  @include flexCenter;
-  width: 42px;
-  height: 42px;
-  background-image: $gradient-primary;
-  color: $foreground-light;
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  border-radius: $radius-md;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.logoText {
-  display: flex;
-  flex-direction: column;
-}
-.logoBrand {
-  font-size: 22px;
-  font-weight: 700;
-  color: $foreground-light;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.logoTagline {
-  font-size: 10px;
-  font-weight: 600;
-  color: $primary;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 3px;
+
+.logoImg {
+  height: 48px;
+  width: auto;
+  max-width: 155px;
+  object-fit: contain;
+  display: block;
+
+  @include respond-below(sm) {
+    height: 38px;
+    max-width: 125px;
+  }
 }
 
 .actions {

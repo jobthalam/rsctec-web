@@ -28,7 +28,7 @@
   @include flexCenter;
   width: 68px;
   height: 68px;
-  background-color: rgba(74, 129, 211, 0.15);
+  background-color: rgba($primary, 0.15);
   border-radius: $radius-full;
   margin: 0 auto;
 

@@ -13,7 +13,7 @@
   border: 1px solid transparent;
 
   &:focus-visible {
-    box-shadow: 0 0 0 3px rgba(74, 129, 211, 0.4);
+    box-shadow: 0 0 0 3px rgba($primary, 0.4);
   }
 
   &:disabled {
@@ -95,7 +95,7 @@
 
   &:hover:not(:disabled) {
     border-color: $primary;
-    background-color: rgba(74, 129, 211, 0.1);
+    background-color: rgba($primary, 0.1);
   }
 }
 

@@ -7,7 +7,7 @@ import RibbonMarquee from "./sections/RibbonMarquee/RibbonMarquee";
 import ServicesGrid from "./sections/ServicesGrid/ServicesGrid";
 import WhyChooseUs from "./sections/WhyChooseUs/WhyChooseUs";
 import StatsCounter from "./sections/StatsCounter/StatsCounter";
-import DefendingInnovation from "./sections/DefendingInnovation/DefendingInnovation";
+import ClientsPartners from "./sections/ClientsPartners/ClientsPartners";
 import ProjectCards from "./sections/ProjectCards/ProjectCards";
 import Testimonials from "./sections/Testimonials/Testimonials";
 import VideoBanner from "./sections/VideoBanner/VideoBanner";
@@ -18,11 +18,11 @@ export default function Home() {
       <Hero />
       <MidBanner />
       <AboutExperts />
-      <RibbonMarquee />
+      <ClientsPartners />
       <ServicesGrid />
+      <RibbonMarquee />
       <WhyChooseUs />
       <StatsCounter />
-      <DefendingInnovation />
       <ProjectCards />
       <Testimonials />
       <VideoBanner />

@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import Container from "@/components/ui/Container/Container";
 import styles from "./Footer.module.scss";
 import {
   COMPANY_INFO,
@@ -11,14 +13,19 @@ import {
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.grid}>
           {/* Column 1: Company Profile */}
           <div className={styles.companyCol}>
-            <div className={styles.brand}>
-              <span className={styles.brandBadge}>RS</span>
-              <span className={styles.brandName}>RS Consulting</span>
-            </div>
+            <Link href="/" className={styles.brand} aria-label="RS Consulting Home">
+              <Image
+                src="/logo/logo.png"
+                alt="RS Consulting"
+                width={160}
+                height={74}
+                className={styles.footerLogoImg}
+              />
+            </Link>
             <p className={styles.tagline}>{COMPANY_INFO.tagline}</p>
             <p className={styles.legalEntity}>
               <strong>Legal Entity:</strong> {COMPANY_INFO.legalName}
@@ -105,7 +112,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

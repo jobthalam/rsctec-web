@@ -116,7 +116,7 @@
     cursor: pointer;
 
     option {
-      background-color: #12132c;
+      background-color: $dark-background;
       color: #ffffff;
     }
   }
@@ -131,8 +131,8 @@
   flex-direction: column;
   gap: 12px;
   padding: 18px;
-  background-color: rgba(74, 129, 211, 0.06);
-  border: 1px solid rgba(74, 129, 211, 0.2);
+  background-color: rgba($primary, 0.06);
+  border: 1px solid rgba($primary, 0.2);
   border-radius: 12px;
 }
 
@@ -166,7 +166,7 @@
   @include flexCenter;
   width: 100%;
   padding: 14px 28px;
-  background-image: linear-gradient(135deg, #4a81d3 0%, #514a9d 100%);
+  background-image: $gradient-primary;
   border: none;
   border-radius: 10px;
   font-family: var(--font-secondary), sans-serif;

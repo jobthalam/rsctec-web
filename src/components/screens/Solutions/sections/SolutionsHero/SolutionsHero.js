@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Container from "@/components/ui/Container/Container";
 import styles from "./SolutionsHero.module.scss";
 
 export default function SolutionsHero() {
   return (
     <section className={styles.heroSection}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.breadcrumb}>
           <Link href="/" className={styles.breadcrumbLink}>
             Home
@@ -23,7 +24,7 @@ export default function SolutionsHero() {
           Securely Share, and Morphisec—with vendor-neutral architecture to protect endpoints,
           automate vulnerability remediation, and ensure end-to-end data privacy.
         </p>
-      </div>
+      </Container>
     </section>
   );
 }

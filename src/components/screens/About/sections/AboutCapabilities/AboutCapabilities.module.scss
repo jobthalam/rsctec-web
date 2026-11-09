@@ -1,0 +1,191 @@
+.section {
+  background-color: #ffffff;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 110px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 60px auto;
+}
+
+.eyebrow {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $primary;
+  margin-bottom: $space-sm;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: $foreground;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+
+  @include respond-above(sm) {
+    font-size: 34px;
+  }
+
+  @include respond-above(lg) {
+    font-size: 40px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  align-items: center;
+
+  @include respond-above(lg) {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 70px;
+  }
+}
+
+.visualCol {
+  position: relative;
+}
+
+.imageStack {
+  position: relative;
+  padding-bottom: 40px;
+
+  @include respond-above(sm) {
+    padding-bottom: 60px;
+  }
+}
+
+.mainImgCard {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  width: 86%;
+}
+
+.stackImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.statBadge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: rgba(15, 13, 30, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 14px 18px;
+  max-width: 180px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.statNum {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.statLabel {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.35;
+  display: block;
+}
+
+.overlapImgCard {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  border: 4px solid #ffffff;
+  z-index: 3;
+}
+
+.featuresCol {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.featureRow {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+
+  @include respond-above(sm) {
+    gap: 22px;
+  }
+}
+
+.iconBox {
+  @include flexCenter;
+  width: 62px;
+  height: 62px;
+  border-radius: 14px;
+  background-color: rgba($primary, 0.08);
+  border: 1px solid rgba($primary, 0.2);
+  flex-shrink: 0;
+}
+
+.capIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.featureContent {
+  flex: 1 0 auto;
+}
+
+.featureTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: $foreground;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.featureDesc {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555869;
+  margin: 0;
+}
