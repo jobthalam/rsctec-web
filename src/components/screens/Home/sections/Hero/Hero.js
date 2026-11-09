@@ -69,18 +69,29 @@ export default function Hero() {
         <div className={styles.fadeWrapper}>
           {SLIDES.map((slide, idx) => {
             const isActive = currentSlide === idx;
+            const words = slide.title.split(" ");
             return (
               <div
                 key={slide.id}
                 className={`${styles.slide} ${isActive ? styles.activeSlide : ""}`}
                 aria-hidden={!isActive}
               >
-                <div className={styles.content}>
+                <div
+                  key={isActive ? `${slide.id}-active` : `${slide.id}-idle`}
+                  className={styles.content}
+                >
                   <div className={styles.subtitleWrapper}>
                     <span className={styles.subtitle}>{slide.subtitle}</span>
                   </div>
 
-                  <h1 className={styles.title}>{slide.title}</h1>
+                  <h1 className={styles.title}>
+                    {words.map((word, wIdx) => (
+                      <React.Fragment key={wIdx}>
+                        <span className={styles.word}>{word}</span>
+                        {wIdx < words.length - 1 ? " " : ""}
+                      </React.Fragment>
+                    ))}
+                  </h1>
 
                   <p className={styles.description}>{slide.description}</p>
 

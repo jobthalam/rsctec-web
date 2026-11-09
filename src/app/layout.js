@@ -4,7 +4,7 @@ import "../styles/caseicon.css";
 import "aos/dist/aos.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
-import AOSInit from "@/components/common/AOSInit/AOSInit";
+import AOSProvider from "@/components/layout/AOSProvider/AOSProvider";
 import { FONT_VARIABLES } from "@/styles/fonts";
 
 export const metadata = {
@@ -27,10 +27,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={FONT_VARIABLES}>
       <body>
-        <AOSInit />
-        <Header />
-        <main className="main-content">{children}</main>
-        <Footer />
+        <AOSProvider>
+          <Header />
+          <main className="main-content">{children}</main>
+          <Footer />
+        </AOSProvider>
       </body>
     </html>
   );

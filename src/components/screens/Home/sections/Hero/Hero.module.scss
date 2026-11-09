@@ -1,8 +1,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  padding-top: 170px;
-  padding-bottom: 90px;
+  padding: 170px 0 90px 0;
   background-color: $dark-background;
   display: flex;
   align-items: center;
@@ -10,15 +9,13 @@
   overflow: hidden;
 
   @include respond-above(md) {
-    padding-top: 190px;
-    padding-bottom: 110px;
+    padding: 190px 0 110px 0;
   }
 }
 
 .bgVideo {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -28,8 +25,7 @@
 
 .videoOverlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   background: rgba($dark-background, 0.72);
@@ -73,18 +69,31 @@
   width: 100%;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
   transition:
-    opacity 0.9s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 0.9s cubic-bezier(0.25, 1, 0.5, 1),
-    visibility 0.9s ease;
+    opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+    visibility 0.7s ease;
   pointer-events: none;
 
   &.activeSlide {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
     pointer-events: auto;
+
+    .subtitle {
+      animation: heroFadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.05s forwards;
+    }
+
+    .word {
+      animation: heroFadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .description {
+      animation: heroFadeUp 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) 0.65s forwards;
+    }
+
+    .ctaRow {
+      animation: heroFadeUp 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) 0.85s forwards;
+    }
   }
 }
 
@@ -99,12 +108,15 @@
 }
 
 .subtitle {
+  display: inline-block;
   font-family: var(--font-secondary), sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 5px;
   color: $primary;
+  opacity: 0;
+  transform: translateY(18px);
 }
 
 .title {
@@ -123,12 +135,27 @@
   }
 }
 
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(22px);
+  will-change: transform, opacity;
+
+  @for $i from 1 through 15 {
+    &:nth-of-type(#{$i}) {
+      animation-delay: #{0.1 + ($i * 0.07)}s;
+    }
+  }
+}
+
 .description {
   font-size: 17px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.75);
   max-width: 760px;
   margin: 0 auto 36px auto;
+  opacity: 0;
+  transform: translateY(20px);
 
   @include respond-above(md) {
     font-size: 19px;
@@ -141,6 +168,8 @@
   align-items: center;
   justify-content: center;
   gap: $space-md;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .primaryBtn {
@@ -203,6 +232,17 @@
   animation-name: slideProgress;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideProgress {

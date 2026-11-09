@@ -1,0 +1,36 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background-color: $dark-background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImg {
+  width: 190px;
+  height: auto;
+  object-fit: contain;
+
+  @include respond-above(md) {
+    width: 230px;
+  }
+}
