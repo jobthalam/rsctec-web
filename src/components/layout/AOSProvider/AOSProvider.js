@@ -5,29 +5,51 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ExpandOnView from "@/components/common/ExpandOnView/ExpandOnView";
+import { useApp } from "@/context/AppContext";
 import styles from "./AOSProvider.module.scss";
 
 export default function AOSProvider({ children }) {
   const pathname = usePathname();
+  const { isVideoLoaded } = useApp();
   const [isLoading, setIsLoading] = useState(true);
   const [isHidden, setIsHidden] = useState(false);
+  const [minTimePassed, setMinTimePassed] = useState(false);
+  const [safetyTimeout, setSafetyTimeout] = useState(false);
 
-  // Refresh AOS when pathname changes (after initial load)
-  useEffect(() => {
-    if (!isLoading) {
-      AOS.refresh();
-    }
-  }, [pathname, isLoading]);
+  const isHomePage = pathname === "/";
 
-  // Minimum preloader display duration
+  // Minimum preloader display duration (prevents visual flicker)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1100);
+      setMinTimePassed(true);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Safety timeout: dismiss preloader if video takes more than 4s
+  useEffect(() => {
+    if (!isHomePage) return;
+    const timer = setTimeout(() => {
+      setSafetyTimeout(true);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, [isHomePage]);
+
+  // Dismiss preloader when conditions are met
+  useEffect(() => {
+    if (!minTimePassed) return;
+
+    if (!isHomePage) {
+      setIsLoading(false);
+      return;
+    }
+
+    if (isVideoLoaded || safetyTimeout) {
+      setIsLoading(false);
+    }
+  }, [minTimePassed, isHomePage, isVideoLoaded, safetyTimeout]);
 
   // Hide preloader overlay and initialize AOS animations
   useEffect(() => {
@@ -63,16 +85,17 @@ export default function AOSProvider({ children }) {
           aria-live="polite"
           aria-label="Loading RS Consulting"
         >
-          <ExpandOnView className={styles.loader}>
+          <div className={styles.loaderWrapper}>
+            <div className={styles.spinner} aria-hidden="true" />
             <Image
-              src="/logo/logo.png"
+              src="/logo/logo-shield.png"
               alt="RS Consulting"
-              width={220}
-              height={101}
+              width={48}
+              height={62}
               priority
               className={styles.logoImg}
             />
-          </ExpandOnView>
+          </div>
         </div>
       )}
 

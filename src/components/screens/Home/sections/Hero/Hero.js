@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
+import { useApp } from "@/context/AppContext";
 import styles from "./Hero.module.scss";
 
 const SLIDE_DURATION = 5500;
@@ -42,6 +43,26 @@ const SLIDES = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const videoRef = useRef(null);
+  const { setVideoLoaded } = useApp();
+
+  const handleVideoReady = () => {
+    setIsVideoReady(true);
+    setVideoLoaded(true);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.readyState >= 2) {
+      handleVideoReady();
+    }
+
+    // Explicitly start playback to avoid any autoplay quirks
+    video.play().catch(() => {});
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,15 +74,20 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <video
-        className={styles.bgVideo}
+        ref={videoRef}
+        className={`${styles.bgVideo} ${isVideoReady ? styles.videoVisible : ""}`}
+        src="/hero-video.mp4"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         poster="/images/cyberguard/bg-home5.jpg"
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+        onLoadedData={handleVideoReady}
+        onCanPlay={handleVideoReady}
+        onPlaying={handleVideoReady}
+        onError={handleVideoReady}
+      />
       <div className={styles.videoOverlay} />
       <div className={styles.overlay} />
 

@@ -38,7 +38,7 @@
 }
 
 .footerLogoImg {
-  height: 52px;
+  height: 70px;
   width: auto;
   max-width: 165px;
   object-fit: contain;
@@ -99,7 +99,9 @@
   font-size: $text-sm;
   color: $text-muted;
   transition: color $transition-fast;
-  &:hover { color: $primary; }
+  &:hover {
+    color: $primary;
+  }
 }
 
 .address {
@@ -132,7 +134,9 @@
   color: $foreground-light;
   font-weight: 500;
   transition: color $transition-fast;
-  &:hover { color: $primary; }
+  &:hover {
+    color: $primary;
+  }
 }
 
 .whatsappLink {
@@ -163,7 +167,9 @@
 
 .copyright {
   text-align: center;
-  @include respond-above(md) { text-align: left; }
+  @include respond-above(md) {
+    text-align: left;
+  }
 }
 
 .legalList {
@@ -177,5 +183,7 @@
 .legalLink {
   color: $text-muted;
   transition: color $transition-fast;
-  &:hover { color: $primary; }
+  &:hover {
+    color: $primary;
+  }
 }

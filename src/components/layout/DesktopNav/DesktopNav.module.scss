@@ -32,9 +32,10 @@
   gap: 4px;
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: $foreground;
   padding: $space-sm 0;
   white-space: nowrap;
+  position: relative;
   transition: color $transition-fast;
 
   @include respond-above(xl) {
@@ -44,11 +45,26 @@
   &:hover {
     color: $primary;
   }
+
+  &.active {
+    color: $primary;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $primary;
+      border-radius: $radius-full;
+    }
+  }
 }
 
 .dropdownArrow {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.5);
+  color: $secondary;
   transition: transform $transition-fast;
 }
 
@@ -62,12 +78,10 @@
   top: 100%;
   left: 0;
   min-width: 290px;
-  background-color: rgba($surface, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: $foreground-light;
+  border: 1px solid $border-light;
   border-radius: $radius-lg;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  box-shadow: $shadow-xl;
   padding: $space-sm;
   opacity: 0;
   visibility: hidden;
@@ -94,8 +108,9 @@
   border-radius: $radius-sm;
   transition: background-color $transition-fast;
 
-  &:hover {
-    background-color: $surface-hover;
+  &:hover,
+  &.active {
+    background-color: $light-background;
     .dropdownLabel {
       color: $primary;
     }
@@ -105,11 +120,11 @@
 .dropdownLabel {
   font-size: $text-sm;
   font-weight: 600;
-  color: $foreground-light;
+  color: $foreground;
 }
 
 .dropdownDesc {
   font-size: $text-xs;
-  color: $text-muted;
+  color: $secondary;
   margin-top: 2px;
 }

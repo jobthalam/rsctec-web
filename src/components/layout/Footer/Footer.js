@@ -17,9 +17,13 @@ export default function Footer() {
         <div className={styles.grid}>
           {/* Column 1: Company Profile */}
           <div className={styles.companyCol}>
-            <Link href="/" className={styles.brand} aria-label="RS Consulting Home">
+            <Link
+              href="/"
+              className={styles.brand}
+              aria-label="RS Consulting Home"
+            >
               <Image
-                src="/logo/logo.png"
+                src="/logo/white-logo.png"
                 alt="RS Consulting"
                 width={160}
                 height={74}
@@ -68,19 +72,23 @@ export default function Footer() {
           {/* Column 4: Contact & Office */}
           <div className={styles.contactCol}>
             <h4 className={styles.colTitle}>Headquarters</h4>
-            <address className={styles.address}>
-              {COMPANY_INFO.address}
-            </address>
+            <address className={styles.address}>{COMPANY_INFO.address}</address>
             <div className={styles.contactEntries}>
               <div className={styles.entry}>
                 <span className={styles.entryLabel}>Phone:</span>
-                <a href={`tel:${COMPANY_INFO.phone}`} className={styles.entryValue}>
+                <a
+                  href={`tel:${COMPANY_INFO.phone}`}
+                  className={styles.entryValue}
+                >
                   {COMPANY_INFO.phoneDisplay}
                 </a>
               </div>
               <div className={styles.entry}>
                 <span className={styles.entryLabel}>Email:</span>
-                <a href={`mailto:${COMPANY_INFO.email}`} className={styles.entryValue}>
+                <a
+                  href={`mailto:${COMPANY_INFO.email}`}
+                  className={styles.entryValue}
+                >
                   {COMPANY_INFO.email}
                 </a>
               </div>
@@ -92,7 +100,8 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className={styles.whatsappLink}
                 >
-                  WhatsApp Consultation <i className="caseicon-long-arrow-right" />
+                  WhatsApp Consultation{" "}
+                  <i className="caseicon-long-arrow-right" />
                 </a>
               </div>
             </div>

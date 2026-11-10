@@ -3,12 +3,29 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./MobileNav.module.scss";
 import { NAVIGATION_LINKS, COMPANY_INFO } from "@/constants/constants";
 import Button from "@/components/ui/Button/Button";
 
 export default function MobileNav({ isOpen, onClose }) {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const pathname = usePathname();
+
+  const isLinkActive = (href) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href || pathname?.startsWith(href + "/");
+  };
+
+  const isParentActive = (item) => {
+    if (isLinkActive(item.href)) return true;
+    if (item.submenu && item.submenu.length > 0) {
+      return item.submenu.some((sub) => isLinkActive(sub.href));
+    }
+    return false;
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -55,6 +72,7 @@ export default function MobileNav({ isOpen, onClose }) {
             {NAVIGATION_LINKS.map((item, index) => {
               const hasSubmenu = Boolean(item.submenu && item.submenu.length > 0);
               const isExpanded = expandedIndex === index;
+              const isActive = isParentActive(item);
 
               return (
                 <li key={item.label} className={styles.navItem}>
@@ -62,7 +80,9 @@ export default function MobileNav({ isOpen, onClose }) {
                     <div>
                       <button
                         type="button"
-                        className={styles.submenuToggle}
+                        className={`${styles.submenuToggle} ${
+                          isActive ? styles.active : ""
+                        }`}
                         onClick={() => toggleSubmenu(index)}
                         aria-expanded={isExpanded}
                       >
@@ -73,24 +93,29 @@ export default function MobileNav({ isOpen, onClose }) {
                       </button>
                       {isExpanded && (
                         <ul className={styles.submenu}>
-                          {item.submenu.map((sub) => (
-                            <li key={sub.label} className={styles.submenuItem}>
-                              <Link
-                                href={sub.href}
-                                className={styles.submenuLink}
-                                onClick={onClose}
-                              >
-                                {sub.label}
-                              </Link>
-                            </li>
-                          ))}
+                          {item.submenu.map((sub) => {
+                            const isSubActive = isLinkActive(sub.href);
+                            return (
+                              <li key={sub.label} className={styles.submenuItem}>
+                                <Link
+                                  href={sub.href}
+                                  className={`${styles.submenuLink} ${
+                                    isSubActive ? styles.active : ""
+                                  }`}
+                                  onClick={onClose}
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       )}
                     </div>
                   ) : (
                     <Link
                       href={item.href}
-                      className={styles.navLink}
+                      className={`${styles.navLink} ${isActive ? styles.active : ""}`}
                       onClick={onClose}
                     >
                       {item.label}

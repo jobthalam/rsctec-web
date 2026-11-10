@@ -90,7 +90,8 @@
   text-align: left;
   transition: color $transition-fast;
 
-  &:hover {
+  &:hover,
+  &.active {
     color: $primary;
   }
 }
@@ -122,8 +123,10 @@
   color: rgba(255, 255, 255, 0.7);
   transition: color $transition-fast;
 
-  &:hover {
+  &:hover,
+  &.active {
     color: $primary;
+    font-weight: 600;
   }
 }
 
