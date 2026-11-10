@@ -43,12 +43,10 @@ const SLIDES = [
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef(null);
   const { setVideoLoaded } = useApp();
 
   const handleVideoReady = () => {
-    setIsVideoReady(true);
     setVideoLoaded(true);
   };
 
@@ -56,12 +54,43 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
 
-    if (video.readyState >= 2) {
+    // Fix iOS WebKit autoplay requirement: defaultMuted must be true
+    video.defaultMuted = true;
+    video.muted = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    if (video.readyState >= 1) {
       handleVideoReady();
     }
 
-    // Explicitly start playback to avoid any autoplay quirks
-    video.play().catch(() => {});
+    const startPlayback = () => {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // iOS Low Power Mode / gesture restriction fallback
+          const unlock = () => {
+            video.play().catch(() => {});
+            cleanup();
+          };
+
+          const cleanup = () => {
+            window.removeEventListener("touchstart", unlock);
+            window.removeEventListener("touchend", unlock);
+            window.removeEventListener("scroll", unlock);
+            window.removeEventListener("click", unlock);
+          };
+
+          window.addEventListener("touchstart", unlock, { once: true, passive: true });
+          window.addEventListener("touchend", unlock, { once: true, passive: true });
+          window.addEventListener("scroll", unlock, { once: true, passive: true });
+          window.addEventListener("click", unlock, { once: true, passive: true });
+        });
+      }
+    };
+
+    startPlayback();
   }, []);
 
   useEffect(() => {
@@ -75,7 +104,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <video
         ref={videoRef}
-        className={`${styles.bgVideo} ${isVideoReady ? styles.videoVisible : ""}`}
+        className={styles.bgVideo}
         src="/hero-video.mp4"
         autoPlay
         loop
@@ -83,6 +112,7 @@ export default function Hero() {
         playsInline
         preload="auto"
         poster="/images/cyberguard/bg-home5.jpg"
+        onLoadedMetadata={handleVideoReady}
         onLoadedData={handleVideoReady}
         onCanPlay={handleVideoReady}
         onPlaying={handleVideoReady}
