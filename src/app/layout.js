@@ -30,9 +30,9 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 800,
-        height: 420,
+        url: "https://rsctec.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
         type: "image/jpeg",
         alt: "RS Consulting - Information Security, Risk Management & Cloud Services",
       },
@@ -43,7 +43,7 @@ export const metadata = {
     title: "RS Consulting | Cybersecurity & DPDPA Compliance",
     description:
       "Security-led DPDP Act, 2023 compliance, vulnerability management, cloud security, and managed security services.",
-    images: ["/og-image.jpg"],
+    images: ["https://rsctec.vercel.app/og-image.jpg"],
   },
 };
 
