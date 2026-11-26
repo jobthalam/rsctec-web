@@ -152,7 +152,7 @@
   font-size: 17px;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.75);
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto 36px auto;
   opacity: 0;
   transform: translateY(20px);
@@ -177,12 +177,14 @@
   display: inline-flex;
   padding: 14px 28px;
   background-image: $gradient-primary;
+  border: none;
   border-radius: 10px;
   font-family: var(--font-secondary), sans-serif;
   font-size: 15px;
   font-weight: 700;
   color: $foreground-light;
   text-decoration: none;
+  cursor: pointer;
   transition: filter $transition-fast;
 
   &:hover {

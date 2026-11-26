@@ -1,0 +1,108 @@
+.section {
+  position: relative;
+  background-image: $gradient-primary;
+  padding: 60px 0;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 70px 0;
+  }
+}
+
+.watermark {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  height: 380px;
+  background-image: url("/images/about/logo-big-white-576x576.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+  position: relative;
+  z-index: 2;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+
+  @include respond-above(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  max-width: 720px;
+}
+
+.headline {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+
+  @include respond-above(md) {
+    font-size: 30px;
+  }
+
+  @include respond-above(lg) {
+    font-size: 34px;
+  }
+}
+
+.subtext {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+
+  @include respond-above(md) {
+    font-size: 16px;
+  }
+}
+
+.btnCol {
+  flex-shrink: 0;
+}
+
+.ctaBtn {
+  @include flexCenter;
+  display: inline-flex;
+  padding: 14px 32px;
+  background-color: #ffffff;
+  color: $primary;
+  border-radius: 10px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.94;
+  }
+}

@@ -5,6 +5,8 @@ import "aos/dist/aos.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
 import AOSProvider from "@/components/layout/AOSProvider/AOSProvider";
+import EnquiryModal from "@/components/common/EnquiryModal/EnquiryModal";
+import TrainingEnquiryModal from "@/components/common/TrainingEnquiryModal/TrainingEnquiryModal";
 import { AppProvider } from "@/context/AppContext";
 import { FONT_VARIABLES } from "@/styles/fonts";
 
@@ -56,6 +58,8 @@ export default function RootLayout({ children }) {
             <Header />
             <main className="main-content">{children}</main>
             <Footer />
+            <EnquiryModal />
+            <TrainingEnquiryModal />
           </AOSProvider>
         </AppProvider>
       </body>

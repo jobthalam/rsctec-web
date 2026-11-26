@@ -61,8 +61,11 @@ export default function CourseCatalog() {
               <p className={styles.courseDesc}>{c.desc}</p>
 
               <div className={styles.cardBottom}>
-                <Link href="/contact" className={styles.enquireLink}>
-                  Request Syllabus & Batch Info <i className="caseicon-long-arrow-right" />
+                <Link
+                  href={`/trainings-certifications/${c.slug}`}
+                  className={styles.enquireLink}
+                >
+                  View Course Details <i className="caseicon-long-arrow-right" />
                 </Link>
               </div>
             </div>

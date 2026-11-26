@@ -1,12 +1,11 @@
-import DpdpaServices from "@/components/screens/DpdpaServices/DpdpaServices";
-import { DPDPA_SEO } from "@/constants/dpdpaData";
+import Services from "@/components/screens/Services/Services";
+import { SERVICES_SEO } from "@/constants/servicesData";
 
 export const metadata = {
-  title: DPDPA_SEO.title,
-  description: DPDPA_SEO.description,
-  keywords: DPDPA_SEO.keywords,
+  title: SERVICES_SEO.title,
+  description: SERVICES_SEO.description,
 };
 
 export default function ServicesPage() {
-  return <DpdpaServices />;
+  return <Services />;
 }

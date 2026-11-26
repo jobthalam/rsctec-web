@@ -11,8 +11,8 @@ export default function PartnerEcosystem() {
       <Container className={styles.container}>
         <SectionHeader
           subtitle="TECHNOLOGY & COMPLIANCE"
-          title="Enterprise Solutions & Technology Partners"
-          description="RS Consulting delivers pure-play architecture and implementation across proven cybersecurity and data protection technologies."
+          title="Technology Solutions"
+          description="Technology Solutions: the tools we implement to put your security and privacy programmes into practice."
           variant="light"
           alignment="center"
         />

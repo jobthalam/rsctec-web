@@ -11,22 +11,25 @@ import ClientsPartners from "./sections/ClientsPartners/ClientsPartners";
 import ProjectCards from "./sections/ProjectCards/ProjectCards";
 import Testimonials from "./sections/Testimonials/Testimonials";
 import VideoBanner from "./sections/VideoBanner/VideoBanner";
+import HomeSolutions from "./sections/HomeSolutions/HomeSolutions";
+import SolutionsCTA from "@/components/screens/Solutions/sections/SolutionsCTA/SolutionsCTA";
 import DpdpaServicesGrid from "../DpdpaServices/sections/DpdpaServicesGrid/DpdpaServicesGrid";
 
 export default function Home() {
   return (
     <div className={styles.homeWrapper}>
       <Hero />
-      <MidBanner />
       <AboutExperts />
+      <HomeSolutions />
       <ClientsPartners />
       <DpdpaServicesGrid isHome />
       <RibbonMarquee />
       <WhyChooseUs />
-      <StatsCounter />
+      {/* <StatsCounter /> */}
       <ProjectCards />
       {/* <Testimonials /> */}
       <VideoBanner />
+      <SolutionsCTA />
     </div>
   );
 }

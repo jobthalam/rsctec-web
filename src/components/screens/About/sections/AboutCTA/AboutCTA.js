@@ -11,15 +11,15 @@ export default function AboutCTA() {
         <div className={styles.contentWrap}>
           <div className={styles.textCol} data-aos="fade-right">
             <h2 className={styles.headline}>
-              Need 24/7 Protection From Cyber Attacks?
+              Let&apos;s discuss your cybersecurity needs.
             </h2>
             <p className={styles.subtext}>
-              Connect directly with our senior cybersecurity advisors and assess your exposure today.
+              We&apos;re here to provide you with the information you need. Reach out to us through phone, email, or whatsapp — or connect directly with our senior cybersecurity advisors for 24/7 protection.
             </p>
           </div>
           <div className={styles.btnCol} data-aos="fade-left">
             <Link href="/contact" className={styles.ctaBtn}>
-              Book Free Consultation
+              Contact Us
             </Link>
           </div>
         </div>

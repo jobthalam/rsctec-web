@@ -1,25 +1,26 @@
 // ====================================================
 // RS Consulting — Solutions & Technology Ecosystem Data
-// Exact Source: https://www.rsctec.com/solutions & Reference Specs
+// Exact Source: https://www.rsctec.com/solutions & Vetted Specs
 // ====================================================
 
 export const SOLUTIONS_INTRO = {
-  eyebrow: "CYBERSECURITY EXPERTS",
-  title: "Comprehensive Cybersecurity Solutions for Modern Threats",
+  eyebrow: "TECHNOLOGY SOLUTIONS",
+  title:
+    "Technology Solutions: the tools we implement to put your security and privacy programmes into practice.",
   description:
-    "For over 15 years, we've been safeguarding organizations from evolving cyber threats. Our team of experts provides end-to-end security solutions — from proactive threat detection and vulnerability assessments to rapid incident response — ensuring your data, systems, and reputation remain fully protected in an ever-changing digital landscape.",
+    "For over 15 years, we've been safeguarding organizations from evolving cyber threats. Our team of experts implements and supports proven security technologies from our global partners — from vulnerability and compliance management to data security, identity governance, and data loss prevention — ensuring your programmes work in practice, not just on paper.",
   checkpoints: [
-    "24/7 threat monitoring and response",
-    "Advanced protection against malware and ransomware",
-    "Customized security solutions for your business",
-    "Compliance-ready and future-proof defense strategies",
+    "Qualys: vulnerability and compliance management",
+    "OpenText: data security and identity governance",
+    "Securely Share: secure, encrypted data sharing",
+    "SearchInform: data loss prevention and insider-risk monitoring",
   ],
   statNumber: "99.9%",
   statLabel: "Threat detection and prevention rate",
   mainImg: "/images/cyberguard/blog-img9.jpg",
   shieldImg: "/images/cyberguard/img-contact1-308x308.jpg",
-  ctaText: "Request A Security Audit",
-  ctaLink: "/contact",
+  ctaText: "Explore Advisory Services",
+  ctaLink: "/services",
 };
 
 export const SOLUTIONS_PARTNERS = [
@@ -33,21 +34,25 @@ export const SOLUTIONS_PARTNERS = [
     ],
     dpdpaSupport:
       "Automates asset discovery, vulnerability management, and continuous compliance auditing across all systems processing personal data.",
+    advisoryCrossLinkText: "Need help with the compliance side? See our Advisory Services",
+    advisoryCrossLinkHref: "/services",
     image: "/images/solutions/qualys.png",
     imageAlt: "Qualys Cloud Platform and Security Solutions",
   },
   {
-    id: "microfocus",
-    name: "CyberRes - Microfocus",
-    subtitle: "Cyber and Business Resiliency for Modern Enterprise",
+    id: "opentext",
+    name: "OpenText",
+    subtitle: "Data Security, Identity Governance & Cyber Resiliency (formerly CyberRes - Micro Focus)",
     paragraphs: [
-      "CyberRes is a Micro Focus line of business. We bring the expertise of one of the world's largest security portfolios to help our customers navigate the changing threat landscape by building both cyber and business resiliency within their teams and organizations. We are here to help enterprises accelerate trust, reliability, and survivability through times of adversity, crisis, and business volatility.",
-      "We are a part of a larger set of digital transformation solutions that fight adverse conditions so businesses can continue to run today, keep the lights on, and transform to grow and take advantage of tomorrow's opportunities.",
+      "OpenText Cybersecurity (formerly CyberRes, a Micro Focus line of business) brings the expertise of one of the world's largest security portfolios to help customers navigate the changing threat landscape by building both cyber and business resiliency within their teams and organizations. We help enterprises accelerate trust, reliability, and survivability through times of adversity, crisis, and business volatility.",
+      "As part of a comprehensive set of digital transformation solutions, OpenText delivers enterprise-grade data security and identity governance so businesses can continue to run today, keep the lights on, and transform to grow and take advantage of tomorrow's opportunities.",
     ],
     dpdpaSupport:
       "Delivers enterprise-grade identity governance, data security, and cyber resilience across hybrid enterprise architectures.",
+    advisoryCrossLinkText: "Need help with the compliance side? See our Advisory Services",
+    advisoryCrossLinkHref: "/services",
     image: "/images/solutions/CyberRes - Microfocus.png",
-    imageAlt: "CyberRes Micro Focus Resiliency Portfolio",
+    imageAlt: "OpenText Cybersecurity Data Security and Identity Governance",
   },
   {
     id: "securely-share",
@@ -68,13 +73,15 @@ export const SOLUTIONS_PARTNERS = [
     ],
     dpdpaSupport:
       "Provides patented client-side file encryption, automated PII discovery, data masking, and granular access revocation under Section 8(5).",
+    advisoryCrossLinkText: "Need help with the compliance side? See our Advisory Services",
+    advisoryCrossLinkHref: "/services",
     image: "/images/solutions/Securely Share.png",
     imageAlt: "Securely Share Data Privacy & Encryption",
   },
   {
     id: "searchinform",
-    name: "Searchinform",
-    subtitle: "Internal Risk Monitor & 360° Activity Monitoring",
+    name: "SearchInform",
+    subtitle: "Data Loss Prevention & 360° Insider-Risk Monitoring",
     paragraphs: [
       "SearchInform Risk Monitor addresses a wide range of problems that occur within a company. The solution helps Risk Managers, Internal Auditors and C-level executives, as well as Information Security Analysts and Compliance Officers in their day-to-day job.",
       "The preconfigured policies are ready to work with just as soon as the system is installed. The policies are tailored to various industries, including Energy, Manufacturing, Retail, Insurance, Hospitality, Government, Financial Services, etc. The software includes specific solutions suitable for any business scope and equips different organizations with an optimal framework.",
@@ -82,20 +89,9 @@ export const SOLUTIONS_PARTNERS = [
     ],
     dpdpaSupport:
       "Enforces 360° Data Loss Prevention (DLP), insider threat auditing, and automated detection of unauthorized personal data exfiltration.",
+    advisoryCrossLinkText: "Need help with the compliance side? See our Advisory Services",
+    advisoryCrossLinkHref: "/services",
     image: "/images/solutions/Searchinform.png",
     imageAlt: "SearchInform Risk Monitor & DLP",
-  },
-  {
-    id: "morphisec",
-    name: "Morphisec",
-    subtitle: "Moving Target Defense (MTD) & Advanced Endpoint Prevention",
-    paragraphs: [
-      "Morphisec provides deterministic, prevention-first defense using patented Moving Target Defense (MTD) technology. By morphing application memory structures at runtime, Morphisec makes critical memory space invisible and inaccessible to zero-day exploits, fileless malware, and ransomware before they execute.",
-      "Operating as an ultralight agent with zero reliance on signatures or cloud lookups, Morphisec protects endpoints, virtual desktops, and critical servers against evasive attacks that bypass traditional EDR and antivirus.",
-    ],
-    dpdpaSupport:
-      "Deterministically prevents ransomware and memory exploits targeting personal data repositories without system downtime.",
-    image: "/images/cyberguard/s2.jpg",
-    imageAlt: "Morphisec Moving Target Defense",
   },
 ];

@@ -1,0 +1,288 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-above(xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kpiCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  padding: $space-lg;
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  text-align: left;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $surface-hover;
+    border-color: $primary;
+    box-shadow: $shadow-glow;
+  }
+}
+
+.kpiTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+}
+
+.kpiLabel {
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $text-muted;
+}
+
+.kpiIcon {
+  @include flexCenter;
+  width: $space-xl;
+  height: $space-xl;
+  border-radius: $radius-md;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-sm;
+}
+
+.kpiValue {
+  font-size: $text-3xl;
+  font-weight: 800;
+  color: $foreground-light;
+  line-height: 1.1;
+}
+
+.kpiTrend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: $accent;
+}
+
+.panelsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-lg;
+
+  @include respond-above(xl) {
+    grid-template-columns: 1.35fr 1fr;
+  }
+}
+
+.panelCard {
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-md;
+  padding-bottom: $space-sm;
+  border-bottom: 1px solid $border;
+}
+
+.panelTitle {
+  font-size: $text-lg;
+  font-weight: 700;
+  color: $foreground-light;
+}
+
+.panelSub {
+  font-size: $text-xs;
+  color: $text-muted;
+}
+
+.viewAllBtn {
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  border: 1px solid $border;
+  background-color: $dark-background;
+  color: $foreground-light;
+  font-size: $text-xs;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $primary;
+    background-color: $surface-hover;
+  }
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-size: $text-xs;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: $text-muted;
+    padding: $space-sm;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: $space-sm;
+    border-bottom: 1px solid $border;
+    font-size: $text-sm;
+    color: $foreground-light;
+    vertical-align: middle;
+  }
+}
+
+.primaryCell {
+  font-weight: 600;
+  color: $foreground-light;
+}
+
+.secondaryCell {
+  font-size: $text-xs;
+  color: $text-muted;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-sm;
+  border-radius: $radius-full;
+  font-size: $text-xs;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.statusNew {
+  background-image: $gradient-primary;
+  color: $foreground-light;
+}
+
+.statusProgress {
+  background-color: $surface-dark-highlight;
+  border: 1px solid $primary;
+  color: $accent;
+}
+
+.statusDone {
+  background-color: $dark-background;
+  border: 1px solid $border;
+  color: $text-muted;
+}
+
+.listStack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+}
+
+.listRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-sm;
+  padding: $space-sm $space-md;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+.listMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.courseTag {
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $accent;
+}
+
+.listName {
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $foreground-light;
+}
+
+.listMeta {
+  font-size: $text-xs;
+  color: $text-muted;
+}
+
+.quickModulesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-above(xl) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.moduleBox {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-md;
+  padding: $space-md;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  text-align: left;
+  transition: all $transition-fast;
+
+  i {
+    font-size: $text-xl;
+    color: $accent;
+    margin-top: 2px;
+  }
+
+  h3 {
+    font-size: $text-sm;
+    font-weight: 700;
+    color: $foreground-light;
+    margin-bottom: 2px;
+  }
+
+  p {
+    font-size: $text-xs;
+    color: $text-muted;
+  }
+
+  &:hover {
+    background-color: $surface-hover;
+    border-color: $primary;
+  }
+}

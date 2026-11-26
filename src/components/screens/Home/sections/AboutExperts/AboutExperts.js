@@ -4,22 +4,16 @@ import Link from "next/link";
 import Container from "@/components/ui/Container/Container";
 import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import ExpandOnView from "@/components/common/ExpandOnView/ExpandOnView";
+import { HOME_ABOUT_BLOCK } from "@/constants/constants";
 import styles from "./AboutExperts.module.scss";
-
-const CHECK_POINTS = [
-  "Security-led, not paperwork-led: We implement technical controls, not just policies",
-  "Proven track record across banking, payments, and highly regulated fintech",
-  "Continuous vulnerability management, VAPT, and CIS configuration benchmarks",
-  "End-to-end DPDPA gap assessment, consent architecture, DPIA, and breach readiness",
-];
 
 export default function AboutExperts() {
   return (
     <section className={styles.section}>
       <Container className={styles.container}>
         <SectionHeader
-          subtitle="About RS Consulting"
-          title="Delivering Ingenious Perspective to Enterprise Cyber Resilience"
+          subtitle={HOME_ABOUT_BLOCK.eyebrow}
+          title={HOME_ABOUT_BLOCK.headline}
           variant="light"
           alignment="center"
         />
@@ -69,17 +63,14 @@ export default function AboutExperts() {
           </div>
 
           <div className={styles.contentCol} data-aos="fade-left">
-            <p className={styles.description}>
-              RS Consulting (RSC Techasist Private Limited) delivers pure-play
-              Information Security, Cyber Risk Management, and security-led
-              DPDPA compliance. With over four decades of collective team
-              leadership across banking, payments, and technology, we don&apos;t
-              stop at paperwork—we implement the technical controls that keep
-              your enterprise resilient.
-            </p>
+            {HOME_ABOUT_BLOCK.paragraphs.map((text, idx) => (
+              <p key={idx} className={styles.description}>
+                {text}
+              </p>
+            ))}
 
             <ul className={styles.checkList}>
-              {CHECK_POINTS.map((item) => (
+              {HOME_ABOUT_BLOCK.checkpoints.map((item) => (
                 <li key={item} className={styles.checkItem}>
                   <span className={styles.checkIcon}>
                     <i className="fas fa-check" />
@@ -89,10 +80,11 @@ export default function AboutExperts() {
               ))}
             </ul>
 
-            <Link href="/contact" className={styles.auditBtn}>
-              Request a Security Audit{" "}
-              <i className="caseicon-long-arrow-right" />
-            </Link>
+            <div className={styles.actionRow}>
+              <Link href={HOME_ABOUT_BLOCK.ctaHref} className={styles.auditBtn}>
+                {HOME_ABOUT_BLOCK.ctaLabel}
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

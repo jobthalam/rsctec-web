@@ -11,12 +11,12 @@ const SLIDE_DURATION = 5500;
 const SLIDES = [
   {
     id: 1,
-    subtitle: "We Are Here for",
-    title: "Delivering ingenious perspective to your information security",
+    subtitle: null,
+    title: "Resilient Cybersecurity & Data Privacy for Regulated Enterprises",
     description:
-      "RS Consulting helps enterprises build resilient cyber defenses with technical controls, continuous assessments, and proven partner technologies.",
+      "Backed by 40+ years of leadership across business verticals including banking and finance, we engineer the technical controls that stop breaches and offer advisory services to help align with evolving regulatory requirements around information security and data privacy",
     primaryCta: {
-      label: "Book a Free Security Assessment",
+      label: "GET STARTED",
       href: "/contact",
     },
     secondaryCta: {
@@ -24,27 +24,12 @@ const SLIDES = [
       href: "/solutions",
     },
   },
-  {
-    id: 2,
-    subtitle: "DPDP Act, 2023 · Full compliance due 13 May 2027",
-    title: "Delivering ingenious perspective to your data protection.",
-    description:
-      "RS Consulting helps Indian businesses become DPDPA-ready by securing the systems that hold personal data, not just the paperwork around it.",
-    primaryCta: {
-      label: "Book a Free DPDPA Readiness Assessment",
-      href: "/contact",
-    },
-    secondaryCta: {
-      label: "Explore DPDPA Services",
-      href: "/services",
-    },
-  },
 ];
 
 export default function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide] = useState(0);
   const videoRef = useRef(null);
-  const { setVideoLoaded } = useApp();
+  const { setVideoLoaded, openEnquiryModal } = useApp();
 
   const handleVideoReady = () => {
     setVideoLoaded(true);
@@ -93,13 +78,6 @@ export default function Hero() {
     startPlayback();
   }, []);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className={styles.hero}>
       <video
@@ -136,9 +114,11 @@ export default function Hero() {
                   key={isActive ? `${slide.id}-active` : `${slide.id}-idle`}
                   className={styles.content}
                 >
-                  <div className={styles.subtitleWrapper}>
-                    <span className={styles.subtitle}>{slide.subtitle}</span>
-                  </div>
+                  {slide.subtitle && (
+                    <div className={styles.subtitleWrapper}>
+                      <span className={styles.subtitle}>{slide.subtitle}</span>
+                    </div>
+                  )}
 
                   <h1 className={styles.title}>
                     {words.map((word, wIdx) => (
@@ -152,9 +132,13 @@ export default function Hero() {
                   <p className={styles.description}>{slide.description}</p>
 
                   <div className={styles.ctaRow}>
-                    <Link href={slide.primaryCta.href} className={styles.primaryBtn}>
+                    <button
+                      type="button"
+                      onClick={() => openEnquiryModal("Get Started")}
+                      className={styles.primaryBtn}
+                    >
                       {slide.primaryCta.label}
-                    </Link>
+                    </button>
                     <Link href={slide.secondaryCta.href} className={styles.secondaryBtn}>
                       {slide.secondaryCta.label}
                     </Link>
@@ -163,14 +147,6 @@ export default function Hero() {
               </div>
             );
           })}
-        </div>
-
-        <div className={styles.progressContainer} aria-hidden="true">
-          <div
-            key={currentSlide}
-            className={styles.progressBar}
-            style={{ animationDuration: `${SLIDE_DURATION}ms` }}
-          />
         </div>
       </Container>
     </section>

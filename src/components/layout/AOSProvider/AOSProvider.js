@@ -5,76 +5,54 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useApp } from "@/context/AppContext";
 import styles from "./AOSProvider.module.scss";
 
 export default function AOSProvider({ children }) {
   const pathname = usePathname();
-  const { isVideoLoaded } = useApp();
   const [isLoading, setIsLoading] = useState(true);
   const [isHidden, setIsHidden] = useState(false);
-  const [minTimePassed, setMinTimePassed] = useState(false);
-  const [safetyTimeout, setSafetyTimeout] = useState(false);
 
-  const isHomePage = pathname === "/";
-
-  // Minimum preloader display duration (prevents visual flicker)
+  // Initialize AOS immediately on mount so elements are never stuck invisible
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setMinTimePassed(true);
-    }, 600);
+    AOS.init({
+      duration: 800,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 50,
+      delay: 50,
+    });
 
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Safety timeout: dismiss preloader if video takes more than 4s
-  useEffect(() => {
-    if (!isHomePage) return;
-    const timer = setTimeout(() => {
-      setSafetyTimeout(true);
-    }, 4000);
-
-    return () => clearTimeout(timer);
-  }, [isHomePage]);
-
-  // Dismiss preloader when conditions are met
-  useEffect(() => {
-    if (!minTimePassed) return;
-
-    if (!isHomePage) {
+    const fadeTimer = setTimeout(() => {
       setIsLoading(false);
-      return;
-    }
+    }, 350);
 
-    if (isVideoLoaded || safetyTimeout) {
-      setIsLoading(false);
-    }
-  }, [minTimePassed, isHomePage, isVideoLoaded, safetyTimeout]);
-
-  // Hide preloader overlay and initialize AOS animations
-  useEffect(() => {
-    if (isLoading) return;
-
-    const timer = setTimeout(() => {
+    const removeTimer = setTimeout(() => {
       setIsHidden(true);
-
-      AOS.init({
-        duration: 800,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 60,
-        delay: 50,
-      });
-
       if (typeof AOS.refreshHard === "function") {
         AOS.refreshHard();
       } else {
         AOS.refresh();
       }
-    }, 700);
+    }, 900);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
+
+  // Re-trigger AOS refresh whenever the route changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof AOS.refreshHard === "function") {
+        AOS.refreshHard();
+      } else {
+        AOS.refresh();
+      }
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, [isLoading]);
+  }, [pathname]);
 
   return (
     <>

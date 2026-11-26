@@ -1,0 +1,239 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.panelCard {
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.panelHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-sm;
+  padding-bottom: $space-sm;
+  border-bottom: 1px solid $border;
+}
+
+.panelTitle {
+  font-size: $text-lg;
+  font-weight: 700;
+  color: $foreground-light;
+}
+
+.badge {
+  padding: 2px $space-sm;
+  border-radius: $radius-full;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-xs;
+  font-weight: 700;
+}
+
+.savedTag {
+  padding: 2px $space-sm;
+  border-radius: $radius-sm;
+  background-color: $surface-dark-highlight;
+  border: 1px solid $accent;
+  color: $accent;
+  font-size: $text-xs;
+  font-weight: 700;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-md;
+
+  @include respond-above(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-above(xl) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.logoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-md;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+.logoPreview {
+  @include flexCenter;
+  width: 100%;
+  height: 64px;
+  padding: $space-sm;
+  background-color: $foreground-light;
+  border-radius: $radius-sm;
+}
+
+.logoImg {
+  max-height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logoName {
+  font-size: $text-xs;
+  font-weight: 600;
+  color: $foreground-light;
+  text-align: center;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.teamCard {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  padding: $space-md;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+.memberAvatar {
+  width: 72px;
+  height: 72px;
+  border-radius: $radius-full;
+  object-fit: cover;
+  border: 2px solid $primary;
+  flex-shrink: 0;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.memberName {
+  font-size: $text-base;
+  font-weight: 700;
+  color: $foreground-light;
+}
+
+.memberRole {
+  font-size: $text-xs;
+  color: $text-muted;
+}
+
+.memberCert {
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $accent;
+}
+
+.envGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-above(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.envBox {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  padding: $space-md;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+}
+
+.envLabel {
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $accent;
+}
+
+.envCode {
+  font-size: $text-xs;
+  color: $foreground-light;
+  word-break: break-all;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-md;
+
+  @include respond-above(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  label {
+    font-size: $text-xs;
+    font-weight: 700;
+    color: $text-muted;
+  }
+
+  input {
+    width: 100%;
+    padding: $space-sm $space-md;
+    background-color: $dark-background;
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    color: $foreground-light;
+    font-size: $text-sm;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+    }
+  }
+}
+
+.saveBtn {
+  width: fit-content;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-md;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-sm;
+  font-weight: 700;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}

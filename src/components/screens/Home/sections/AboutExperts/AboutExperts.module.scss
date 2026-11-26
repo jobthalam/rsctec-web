@@ -15,8 +15,6 @@
   }
 }
 
-
-
 .row {
   display: grid;
   grid-template-columns: 1fr;
@@ -112,7 +110,7 @@
 .description {
   font-size: 16px;
   line-height: 1.8;
-  color: $text-muted;
+  color: #2b3040d5;
   margin-bottom: $space-lg;
 
   @include respond-above(md) {
@@ -148,20 +146,46 @@
   flex-shrink: 0;
 }
 
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  align-items: center;
+}
+
 .auditBtn {
   @include flexCenter;
   display: inline-flex;
-  padding: 14px 32px;
+  gap: $space-sm;
+  padding: $space-md $space-xl;
   background-color: $primary;
-  color: #ffffff;
-  font-size: 15px;
+  color: $foreground-light;
+  font-size: $text-base;
   font-weight: 600;
   border-radius: $radius-sm;
   text-decoration: none;
-  align-self: flex-start;
   transition: all $transition-default;
 
   &:hover {
     background-color: $primary-hover;
+  }
+}
+
+.secondaryBtn {
+  @include flexCenter;
+  display: inline-flex;
+  padding: $space-md $space-xl;
+  background-color: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  font-size: $text-base;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  transition: all $transition-default;
+
+  &:hover {
+    background-color: $primary;
+    color: $foreground-light;
   }
 }

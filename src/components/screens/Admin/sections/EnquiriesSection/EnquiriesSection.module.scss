@@ -1,0 +1,215 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+}
+
+.filterPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+}
+
+.filterPill {
+  padding: $space-xs $space-md;
+  border-radius: $radius-full;
+  background-color: $surface;
+  border: 1px solid $border;
+  color: $text-muted;
+  font-size: $text-xs;
+  font-weight: 600;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $foreground-light;
+    border-color: $primary;
+  }
+}
+
+.filterPillActive {
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  border-color: transparent;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.leadCard {
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $primary;
+  }
+}
+
+.leadTop {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  @include respond-above(md) {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.refCode {
+  display: block;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: $accent;
+  margin-bottom: 2px;
+}
+
+.leadName {
+  font-size: $text-lg;
+  font-weight: 700;
+  color: $foreground-light;
+
+  span {
+    color: $text-muted;
+    font-weight: 500;
+  }
+}
+
+.leadContact {
+  font-size: $text-sm;
+  color: $text-muted;
+}
+
+.statusControl {
+  flex-shrink: 0;
+}
+
+.statusSelect {
+  padding: $space-xs $space-md;
+  border-radius: $radius-md;
+  background-color: $dark-background;
+  border: 1px solid $primary;
+  color: $foreground-light;
+  font-size: $text-xs;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: $shadow-glow;
+  }
+}
+
+.leadBody {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  padding-top: $space-sm;
+  border-top: 1px solid $border;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-xs;
+}
+
+.topicPill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 2px $space-sm;
+  border-radius: $radius-sm;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-xs;
+  font-weight: 700;
+}
+
+.subPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px $space-sm;
+  border-radius: $radius-sm;
+  background-color: $dark-background;
+  border: 1px solid $border;
+  color: $text-muted;
+  font-size: $text-xs;
+  font-weight: 600;
+}
+
+.messageText {
+  font-size: $text-sm;
+  color: $foreground-light;
+  line-height: 1.6;
+}
+
+.leadFooter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+  padding-top: $space-xs;
+}
+
+.consentTag {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-size: $text-xs;
+  color: $text-muted;
+
+  i {
+    color: $accent;
+  }
+}
+
+.tableCard {
+  background-color: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    font-size: $text-xs;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $text-muted;
+    padding: $space-sm;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: $space-md $space-sm;
+    border-bottom: 1px solid $border;
+    font-size: $text-sm;
+    color: $foreground-light;
+  }
+}
+
+.strongText {
+  font-weight: 700;
+}

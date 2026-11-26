@@ -65,7 +65,9 @@ export default function DpdpaServicesGrid({ isHome }) {
 
         {isHome && (
           <div className={styles.btn}>
-            <Button href={"/services"}>Explore Our DPDPA Services</Button>
+            <Button href={"/dpdpa-compliance"}>
+              Explore Our DPDPA Services
+            </Button>
           </div>
         )}
       </Container>

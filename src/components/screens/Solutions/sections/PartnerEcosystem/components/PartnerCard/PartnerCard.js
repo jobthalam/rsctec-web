@@ -51,6 +51,14 @@ export default function PartnerCard({ partner, isReversed }) {
           <Link href="/contact" className={styles.enquireBtn}>
             Enquire About {partner.name} <i className="caseicon-long-arrow-right" />
           </Link>
+          <Link
+            href={partner.advisoryCrossLinkHref || "/services"}
+            className={styles.crossLink}
+          >
+            {partner.advisoryCrossLinkText ||
+              "Need help with the compliance side? See our Advisory Services"}{" "}
+            &rarr;
+          </Link>
         </div>
       </div>
 

@@ -1,0 +1,93 @@
+.section {
+  background-color: $dark-background;
+  padding: $space-huge 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: $surface-dark;
+  border: 1px solid $border-dark;
+  border-radius: $radius-lg;
+  padding: $space-xxl;
+  box-shadow: $shadow-card;
+  transition: all $transition-default;
+
+  &:hover {
+    background-color: $surface-dark-highlight;
+    border-color: $primary;
+    box-shadow: $shadow-glow;
+  }
+}
+
+.iconBox {
+  @include flexCenter;
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-lg;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-2xl;
+  margin-bottom: $space-lg;
+  box-shadow: $shadow-glow;
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-2xl;
+  font-weight: 800;
+  color: $foreground-light;
+  margin-bottom: $space-md;
+}
+
+.desc {
+  font-size: $text-base;
+  line-height: 1.75;
+  color: $text-muted;
+  margin-bottom: $space-xl;
+  flex-grow: 1;
+}
+
+.actionRow {
+  display: flex;
+}
+
+.ctaBtn {
+  @include flexCenter;
+  display: inline-flex;
+  padding: $space-md $space-xl;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-base;
+  font-weight: 700;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  box-shadow: $shadow-glow;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}

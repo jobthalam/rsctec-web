@@ -1,0 +1,156 @@
+.section {
+  background-color: #ffffff;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include respond-above(md) {
+    padding: 100px 0;
+  }
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+
+  @include respond-above(md) {
+    padding: 0 $space-xl;
+  }
+}
+
+.header {
+  margin-bottom: 50px;
+}
+
+.mosaicGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  @include respond-above(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.compoundCard {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 250px;
+
+  @include respond-above(sm) {
+    grid-template-columns: 1fr 1fr;
+
+    &.reverse {
+      .imageHalf {
+        order: 2;
+      }
+      .textHalf {
+        order: 1;
+      }
+    }
+  }
+
+  @include respond-above(lg) {
+    min-height: 280px;
+  }
+}
+
+.imageHalf {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+
+  @include respond-above(sm) {
+    min-height: auto;
+  }
+}
+
+.bgImage {
+  object-fit: cover;
+  transition: transform $transition-default;
+}
+
+.compoundCard:hover .bgImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 10, 22, 0.55) 0%,
+    rgba(15, 10, 22, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+.numberOverlay {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  z-index: 2;
+  letter-spacing: -0.02em;
+
+  @include respond-above(md) {
+    font-size: 44px;
+    top: 28px;
+    left: 32px;
+  }
+}
+
+.textHalf {
+  padding: 34px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+
+  @include respond-above(md) {
+    padding: 44px 38px;
+  }
+
+  &.dark {
+    background-color: #17142a;
+    color: #ffffff;
+  }
+
+  &.purple {
+    background-color: #4b4fa4;
+    background-image: linear-gradient(135deg, #4b4fa4 0%, #3e428c 100%);
+    color: #ffffff;
+  }
+}
+
+.title {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+
+  @include respond-above(md) {
+    font-size: 24px;
+  }
+}
+
+.description {
+  font-family: var(--font-primary), sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}

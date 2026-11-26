@@ -1,12 +1,8 @@
 .section {
-  background-color: #ffffff;
-  padding: 90px 0;
+  background-color: $foreground-light;
+  padding: $space-huge 0;
   position: relative;
   overflow: hidden;
-
-  @include respond-above(md) {
-    padding: 110px 0;
-  }
 }
 
 .container {
@@ -19,15 +15,37 @@
   }
 }
 
+.introBanner {
+  background-color: $light-background;
+  border-left: 4px solid $primary;
+  border-radius: $radius-lg;
+  padding: $space-xl $space-xxl;
+  margin-bottom: $space-xxxl;
+  box-shadow: $shadow-sm;
+}
+
+.introText {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-lg;
+  font-weight: 600;
+  line-height: 1.65;
+  color: $foreground;
+  margin: 0;
+
+  @include respond-above(md) {
+    font-size: $text-xl;
+  }
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 50px;
+  gap: $space-xxl;
   align-items: center;
+  margin-bottom: $space-xxxl;
 
   @include respond-above(lg) {
     grid-template-columns: 1.05fr 1.15fr;
-    gap: 60px;
   }
 }
 
@@ -37,46 +55,16 @@
 }
 
 .sectionHeader {
-  margin-bottom: 18px;
-}
-
-.lead {
-  font-family: var(--font-primary), sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #1f212d;
-  line-height: 1.6;
-  margin-bottom: 14px;
+  margin-bottom: $space-md;
 }
 
 .paragraph {
   font-family: var(--font-primary), sans-serif;
-  font-size: 15px;
-  line-height: 1.75;
-  color: #555869;
-  margin-bottom: 28px;
-}
-
-.btnRow {
-  display: flex;
-}
-
-.primaryBtn {
-  @include flexCenter;
-  display: inline-flex;
-  padding: 14px 32px;
-  background-image: $gradient-primary;
-  border-radius: 10px;
-  font-family: var(--font-secondary), sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  transition: opacity $transition-fast;
-
-  &:hover {
-    opacity: 0.94;
-  }
+  font-size: $text-base;
+  line-height: 1.8;
+  color: $foreground;
+  opacity: 0.85;
+  margin-bottom: $space-lg;
 }
 
 .visualCol {
@@ -87,27 +75,27 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: $space-md;
   align-items: center;
 
   @include respond-above(sm) {
-    gap: 20px;
+    gap: $space-lg;
   }
 }
 
 .imgCardLeft {
   position: relative;
-  border-radius: 16px;
+  border-radius: $radius-xl;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: $shadow-md;
 }
 
 .imgCardRight {
   position: relative;
-  border-radius: 16px;
+  border-radius: $radius-xl;
   overflow: hidden;
-  margin-top: 36px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-top: $space-xxl;
+  box-shadow: $shadow-md;
 }
 
 .featureImg {
@@ -122,42 +110,101 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 18px 24px;
+  background-color: $foreground-light;
+  border-radius: $radius-xl;
+  padding: $space-lg $space-xl;
   text-align: center;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: $shadow-lg;
+  border: 1px solid $border-light;
   z-index: 2;
-  min-width: 135px;
-
-  @include respond-above(sm) {
-    padding: 22px 30px;
-    min-width: 160px;
-  }
+  min-width: 150px;
 }
 
 .expNumber {
   font-family: var(--font-secondary), sans-serif;
-  font-size: 42px;
+  font-size: $text-4xl;
   font-weight: 800;
-  color: $foreground;
+  color: $primary;
   line-height: 1;
   display: block;
-  margin-bottom: 4px;
-
-  @include respond-above(sm) {
-    font-size: 48px;
-  }
+  margin-bottom: $space-xs;
 }
 
 .expLabel {
   font-family: var(--font-secondary), sans-serif;
-  font-size: 12px;
+  font-size: $text-xs;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #636677;
+  color: $foreground;
   display: block;
   line-height: 1.3;
+}
+
+.visionMissionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-xl;
+
+  @include respond-above(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.vmCard {
+  display: flex;
+  flex-direction: column;
+  background-color: $light-background;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: $space-xxl;
+  box-shadow: $shadow-sm;
+  transition: all $transition-default;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: $shadow-md;
+  }
+}
+
+.vmHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-md;
+  margin-bottom: $space-md;
+}
+
+.vmIconBox {
+  @include flexCenter;
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-lg;
+  background-image: $gradient-primary;
+  color: $foreground-light;
+  font-size: $text-xl;
+  box-shadow: $shadow-glow;
+}
+
+.vmBadge {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-sm;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: $primary;
+}
+
+.vmTitle {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-2xl;
+  font-weight: 700;
+  color: $foreground;
+  margin-bottom: $space-sm;
+}
+
+.vmText {
+  font-size: $text-base;
+  line-height: 1.7;
+  color: $foreground;
+  opacity: 0.85;
+  margin: 0;
 }

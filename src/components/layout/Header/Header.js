@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.scss";
 import Button from "@/components/ui/Button/Button";
 import Container from "@/components/ui/Container/Container";
@@ -14,6 +15,8 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     let lastScrollY =
@@ -54,6 +57,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   const showHeader = isVisible || mobileMenuOpen;
 
   return (
@@ -63,13 +70,15 @@ export default function Header() {
           !showHeader ? styles.hidden : ""
         }`}
       >
-        <div
-          className={`${styles.topBarWrapper} ${
-            isScrolled ? styles.topBarHidden : ""
-          }`}
-        >
-          <TopAnnouncementBar />
-        </div>
+        {isHomePage && (
+          <div
+            className={`${styles.topBarWrapper} ${
+              isScrolled ? styles.topBarHidden : ""
+            }`}
+          >
+            <TopAnnouncementBar />
+          </div>
+        )}
 
         <div className={styles.navBar}>
           <Container className={styles.navBarInner}>
