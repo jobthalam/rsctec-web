@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: $text-2xl;
+  font-weight: 700;
+}
+
+.description {
+  font-size: $text-sm;
+  color: rgba($foreground, 0.6);
+  margin-top: $space-xs;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
+
+  @include respond-below(sm) {
+    width: 100%;
+  }
+}

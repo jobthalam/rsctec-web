@@ -1,56 +1,97 @@
 .successState {
   text-align: center;
-  padding: 40px 20px;
+  padding: $space-xl $space-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h3 {
     font-family: var(--font-secondary), sans-serif;
-    font-size: 26px;
+    font-size: $text-2xl;
     font-weight: 700;
-    color: #ffffff;
-    margin: 16px 0 10px 0;
+    color: $foreground;
+    margin: $space-md 0 $space-xs 0;
   }
 
   p {
     font-family: var(--font-primary), sans-serif;
-    font-size: 15px;
+    font-size: $text-sm;
     line-height: 1.7;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 580px;
-    margin: 0 auto 28px auto;
+    color: rgba($foreground, 0.7);
+    max-width: 520px;
+    margin: 0 auto $space-xl auto;
 
     strong {
       color: $primary;
+      font-weight: 600;
     }
   }
 }
 
 .checkIcon {
   @include flexCenter;
-  width: 68px;
-  height: 68px;
-  background-color: rgba($primary, 0.15);
+  width: 64px;
+  height: 64px;
+  background-color: rgba($primary, 0.12);
   border-radius: $radius-full;
-  margin: 0 auto;
+  margin: 0 auto $space-sm auto;
 
   i {
-    font-size: 34px;
+    font-size: 32px;
     color: $primary;
   }
 }
 
-.resetBtn {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 10px 22px;
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary;
+  border: 1px solid $primary;
+  border-radius: $radius-md;
+  padding: $space-sm $space-xl;
   font-family: var(--font-secondary), sans-serif;
-  font-size: 14px;
+  font-size: $text-sm;
   font-weight: 600;
-  color: #ffffff;
+  color: $foreground-light;
   cursor: pointer;
-  transition: border-color $transition-fast;
+  transition: background-color $transition-fast;
 
   &:hover {
-    border-color: $primary;
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  padding: $space-sm $space-lg;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: $text-sm;
+  font-weight: 600;
+  color: $foreground;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: rgba($primary, 0.06);
+    border-color: rgba($primary, 0.3);
+    color: $primary;
   }
 }

@@ -1,0 +1,38 @@
+.link {
+  color: $primary;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.long {
+  padding: $space-sm $space-md;
+  background-color: $light-background;
+  border-radius: $radius-md;
+  line-height: 1.6;
+}
+
+.yes,
+.no {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-weight: 500;
+
+  i {
+    font-size: $text-xs;
+  }
+}
+
+.yes {
+  color: $primary;
+}
+
+.no {
+  color: rgba($foreground, 0.5);
+}
+
+.empty {
+  color: rgba($foreground, 0.4);
+}

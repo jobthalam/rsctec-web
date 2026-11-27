@@ -43,6 +43,7 @@ export default function EnquiryModal() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Global click interceptor for any CTA button/link pointing to /contact (except main nav links)
   useEffect(() => {
@@ -79,10 +80,13 @@ export default function EnquiryModal() {
     if (enquiryModal.isOpen) {
       document.body.style.overflow = "hidden";
       if (enquiryModal.subject) {
-        setFormData((prev) => ({
-          ...prev,
-          message: prev.message || `Enquiry regarding: ${enquiryModal.subject}`,
-        }));
+        const timer = setTimeout(() => {
+          setFormData((prev) => ({
+            ...prev,
+            message: prev.message || `Enquiry regarding: ${enquiryModal.subject}`,
+          }));
+        }, 0);
+        return () => clearTimeout(timer);
       }
     } else {
       document.body.style.overflow = "";
@@ -102,14 +106,28 @@ export default function EnquiryModal() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.dpdpaConsent) return;
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to submit enquiry.");
+      }
       setSubmitted(true);
-    }, 600);
+    } catch (err) {
+      setErrorMessage(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -161,6 +179,7 @@ export default function EnquiryModal() {
               interest={formData.interest}
               email={formData.email}
               onReset={handleReset}
+              onClose={closeEnquiryModal}
             />
           ) : (
             <form onSubmit={handleSubmit} className={styles.form}>
@@ -272,6 +291,10 @@ export default function EnquiryModal() {
                 newsletter={formData.newsletter}
                 onChange={handleChange}
               />
+
+              {errorMessage && (
+                <p className={styles.errorText}>{errorMessage}</p>
+              )}
 
               <div className={styles.actions}>
                 <button

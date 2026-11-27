@@ -1,0 +1,50 @@
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $text-sm;
+
+  th {
+    padding: $space-md $space-lg;
+    text-align: left;
+    white-space: nowrap;
+    font-size: $text-xs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba($foreground, 0.55);
+    background-color: rgba($light-background, 0.6);
+    border-bottom: 1px solid $border-light;
+  }
+}
+
+.dragCell {
+  width: 36px;
+  padding: $space-md $space-xs $space-md $space-md !important;
+  text-align: center !important;
+}
+
+.checkboxCell {
+  width: 44px;
+  padding: $space-md $space-md $space-md $space-lg !important;
+  text-align: center !important;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: $primary;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.empty {
+  text-align: center !important;
+  color: rgba($foreground, 0.5) !important;
+  padding: $space-xxl !important;
+}

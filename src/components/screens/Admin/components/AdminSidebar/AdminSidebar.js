@@ -1,113 +1,60 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { ADMIN_MENU_GROUPS } from "@/constants/adminData";
 import styles from "./AdminSidebar.module.scss";
 
-export default function AdminSidebar({
-  activeTab,
-  onSelectTab,
-  isOpen,
-  onClose,
-  counts,
-}) {
-  const handleItemClick = (id) => {
-    onSelectTab(id);
-    if (onClose) onClose();
+export default function AdminSidebar({ items, activeId, onSelect }) {
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch (err) {
+      console.error("Logout failed:", err);
+    } finally {
+      window.location.href = "/admin/login";
+    }
   };
 
   return (
-    <>
-      {isOpen && (
-        <div
-          className={styles.backdrop}
-          onClick={onClose}
-          aria-hidden="true"
-        />
-      )}
-
-      <aside
-        className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}
-        aria-label="Admin Sidebar Navigation"
-      >
-        <div className={styles.brandHeader}>
-          <Link href="/" className={styles.logoLink}>
-            <Image
-              src="/logo/white-logo.png"
-              alt="RS Consulting"
-              width={136}
-              height={62}
-              className={styles.logoImg}
-              priority
-            />
-          </Link>
-          <span className={styles.consoleBadge}>ADMIN</span>
-          <button
-            type="button"
-            className={styles.mobileCloseBtn}
-            onClick={onClose}
-            aria-label="Close sidebar"
-          >
-            <i className="fas fa-times" />
-          </button>
+    <aside className={styles.sidebar}>
+      <div className={styles.topSection}>
+        <div className={styles.brand}>
+          <Image
+            src="/logo/logo.png"
+            alt="RS Consulting"
+            width={110}
+            height={51}
+            className={styles.logo}
+            priority
+          />
+          <span className={styles.tag}>Admin</span>
         </div>
 
-        <nav className={styles.navScroll}>
-          {ADMIN_MENU_GROUPS.map((group) => (
-            <div key={group.groupLabel} className={styles.menuGroup}>
-              <span className={styles.groupTitle}>{group.groupLabel}</span>
-              <ul className={styles.menuList}>
-                {group.items.map((item) => {
-                  const isActive = activeTab === item.id;
-                  const dynamicBadge =
-                    counts && counts[item.id] !== undefined
-                      ? counts[item.id]
-                      : item.badge;
-
-                  return (
-                    <li key={item.id} className={styles.menuItem}>
-                      <button
-                        type="button"
-                        onClick={() => handleItemClick(item.id)}
-                        className={`${styles.menuButton} ${
-                          isActive ? styles.menuButtonActive : ""
-                        }`}
-                      >
-                        <span className={styles.menuIcon}>
-                          <i className={item.icon} aria-hidden="true" />
-                        </span>
-                        <span className={styles.menuLabel}>{item.label}</span>
-                        {dynamicBadge ? (
-                          <span className={styles.menuBadge}>
-                            {dynamicBadge}
-                          </span>
-                        ) : null}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+        <nav className={styles.menu} aria-label="Admin navigation">
+          {items.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={`${styles.menuItem} ${
+                activeId === item.id ? styles.active : ""
+              }`}
+              onClick={() => onSelect(item.id)}
+            >
+              <i className={item.icon} aria-hidden="true" />
+              <span>{item.label}</span>
+            </button>
           ))}
         </nav>
+      </div>
 
-        <div className={styles.sidebarFooter}>
-          <div className={styles.dbStatusBox}>
-            <span className={styles.statusDot} />
-            <div className={styles.statusMeta}>
-              <span className={styles.statusTitle}>Supabase Ready</span>
-              <span className={styles.statusSub}>Auth Bypassed (Dev)</span>
-            </div>
-          </div>
-
-          <Link href="/" className={styles.exitLink}>
-            <i className="fas fa-external-link-alt" aria-hidden="true" />
-            <span>View Live Website</span>
-          </Link>
-        </div>
-      </aside>
-    </>
+      <div className={styles.footerSection}>
+        <button
+          type="button"
+          className={styles.logoutBtn}
+          onClick={handleLogout}
+        >
+          <i className="fas fa-sign-out-alt" aria-hidden="true" />
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
   );
 }

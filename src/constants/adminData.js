@@ -419,3 +419,150 @@ export const ADMIN_SOLUTIONS_CATALOG = [
     status: "Active Partner",
   },
 ];
+
+// ====================================================
+// Admin Panel (v2) — Menu, Table Columns & Detail Fields
+// ====================================================
+
+export const ADMIN_MENU = [
+  { id: "enquiries", label: "Enquiries", icon: "fas fa-envelope-open-text" },
+  { id: "trainings", label: "Trainings", icon: "fas fa-graduation-cap" },
+];
+
+export const ENQUIRY_PANEL = {
+  title: "Enquiries",
+  description: "Consultation requests from the website enquiry form.",
+  searchKeys: ["id", "fullName", "email", "company", "interest"],
+  columns: [
+    { key: "id", label: "ID" },
+    { key: "fullName", label: "Name" },
+    { key: "company", label: "Company" },
+    { key: "interest", label: "Interested In" },
+    { key: "date", label: "Date" },
+    { key: "status", label: "Status", type: "status" },
+  ],
+  fields: [
+    { key: "fullName", label: "Full name" },
+    { key: "email", label: "Business email", type: "email" },
+    { key: "phone", label: "Phone", type: "phone" },
+    { key: "company", label: "Company name" },
+    { key: "industry", label: "Industry" },
+    { key: "interest", label: "Interested in" },
+    { key: "message", label: "Message", type: "long" },
+    { key: "dpdpaConsent", label: "DPDPA consent", type: "bool" },
+    { key: "newsletter", label: "Newsletter opt-in", type: "bool" },
+  ],
+};
+
+export const TRAINING_PANEL = {
+  title: "Training Enquiries",
+  description: "Course and batch registration enquiries from the Trainings portal.",
+  searchKeys: ["id", "fullName", "email", "organization", "course"],
+  columns: [
+    { key: "id", label: "ID" },
+    { key: "fullName", label: "Name" },
+    { key: "course", label: "Course" },
+    { key: "trainingMode", label: "Mode" },
+    { key: "date", label: "Date" },
+    { key: "status", label: "Status", type: "status" },
+  ],
+  fields: [
+    { key: "course", label: "Course", type: "long" },
+    { key: "fullName", label: "Full name" },
+    { key: "email", label: "Email", type: "email" },
+    { key: "phone", label: "Phone", type: "phone" },
+    { key: "designation", label: "Designation" },
+    { key: "organization", label: "Organization" },
+    { key: "participantType", label: "Participant type" },
+    { key: "trainingMode", label: "Training mode" },
+    { key: "notes", label: "Notes", type: "long" },
+  ],
+};
+
+// ====================================================
+// Admin Panel (v2) — Trainings Management
+// ====================================================
+
+export const TRAINING_SUB_TABS = [
+  { id: "manage", label: "Trainings & Certifications" },
+  { id: "enquiries", label: "Enquiries" },
+];
+
+export const TRAINING_STATUS_OPTIONS = ["Published", "Draft"];
+
+export const TRAINING_LIST_COLUMNS = [
+  { key: "title", label: "Title" },
+  { key: "category", label: "Category" },
+  { key: "duration", label: "Duration" },
+  { key: "status", label: "Status", type: "status" },
+];
+
+// Form field schema — `type`: text | textarea | select | checkbox
+export const TRAINING_FORM_FIELDS = [
+  { name: "title", label: "Title", type: "text", required: true, full: true },
+  { name: "slug", label: "Slug (URL)", type: "text", required: true, placeholder: "e.g. dpdpa-practitioner" },
+  { name: "category", label: "Category", type: "select", required: true, optionsKey: "categories" },
+  { name: "badge", label: "Badge", type: "text", placeholder: "e.g. Practitioner" },
+  { name: "status", label: "Status", type: "select", optionsKey: "statuses" },
+  { name: "audience", label: "Audience", type: "text", placeholder: "e.g. IT, security, compliance" },
+  { name: "duration", label: "Duration", type: "text", placeholder: "e.g. 1–2 days" },
+  { name: "instructor", label: "Instructor", type: "text", placeholder: "e.g. Lead Implementer" },
+  { name: "image", label: "Cover image path", type: "text", placeholder: "/images/..." },
+  { name: "avatar", label: "Instructor avatar path", type: "text", placeholder: "/images/..." },
+  { name: "desc", label: "Short description", type: "textarea", full: true },
+  { name: "outcome", label: "Learning outcome", type: "textarea", full: true },
+];
+
+export const DEFAULT_TRAINING_TABS = [
+  { id: "overview", label: "Course Overview", htmlContent: "" },
+  { id: "about", label: "About", htmlContent: "" },
+  { id: "agenda", label: "Agenda", htmlContent: "" },
+  { id: "certification", label: "Certification", htmlContent: "" },
+  { id: "examination", label: "Examination", htmlContent: "" },
+];
+
+export const EMPTY_TRAINING = {
+  id: "",
+  title: "",
+  slug: "",
+  category: "",
+  badge: "",
+  status: "Draft",
+  audience: "",
+  duration: "",
+  instructor: "",
+  image: "",
+  avatar: "",
+  desc: "",
+  outcome: "",
+  featured: false,
+  tabs: DEFAULT_TRAINING_TABS,
+};
+
+export function slugify(value = "") {
+  return String(value)
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+// Merges DPDPA_COURSES (featured) and CATALOG_COURSES into one editable list.
+export function buildAdminTrainings(dpdpaCourses, catalogCourses, getCourseBySlug) {
+  const map = new Map();
+  catalogCourses.forEach((c) => map.set(c.id, { ...c, featured: false }));
+  dpdpaCourses.forEach((c) =>
+    map.set(c.id, { ...(map.get(c.id) || {}), ...c, featured: true })
+  );
+
+  return [...map.values()].map((c) => ({
+    ...EMPTY_TRAINING,
+    ...c,
+    category: c.category || "DPDPA & Privacy",
+    desc: c.desc || c.outcome || "",
+    outcome: c.outcome || "",
+    status: "Published",
+    tabs: c.tabs || getCourseBySlug(c.slug)?.tabs || DEFAULT_TRAINING_TABS,
+  }));
+}

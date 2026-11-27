@@ -1,0 +1,128 @@
+.row {
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:last-child td {
+    border-bottom: 0;
+  }
+
+  &:hover {
+    background-color: rgba($primary, 0.03);
+  }
+
+  &.selectedRow {
+    background-color: rgba($primary, 0.06);
+  }
+
+  &.dragging {
+    opacity: 0.35;
+    background-color: rgba($primary, 0.08);
+  }
+
+  &.dragOver {
+    border-top: 2px solid $primary;
+  }
+
+  td {
+    padding: $space-md $space-lg;
+    color: $foreground;
+    border-bottom: 1px solid $border-light;
+    white-space: nowrap;
+  }
+}
+
+.dragCell {
+  width: 36px;
+  padding: $space-md $space-xs $space-md $space-md !important;
+  text-align: center !important;
+}
+
+.dragHandle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: rgba($foreground, 0.4);
+  cursor: grab;
+  border-radius: $radius-sm;
+  transition:
+    color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    color: $primary;
+    background-color: rgba($primary, 0.08);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.checkboxCell {
+  width: 44px;
+  padding: $space-md $space-md $space-md $space-lg !important;
+  text-align: center !important;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: $primary;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.actionCell {
+  text-align: right !important;
+}
+
+.actionsGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+}
+
+.viewBtn {
+  padding: $space-xs $space-md;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: $primary;
+  border: 1px solid rgba($primary, 0.3);
+  border-radius: $radius-md;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: $primary;
+    color: $foreground-light;
+  }
+}
+
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  font-size: $text-xs;
+  color: rgba($foreground, 0.55);
+  border: 1px solid $border-light;
+  border-radius: $radius-md;
+  background-color: transparent;
+  cursor: pointer;
+  transition:
+    color $transition-fast,
+    background-color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover {
+    color: $primary;
+    border-color: rgba($primary, 0.4);
+    background-color: rgba($primary, 0.08);
+  }
+}

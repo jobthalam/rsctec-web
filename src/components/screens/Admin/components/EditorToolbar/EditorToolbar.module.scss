@@ -1,0 +1,41 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  min-height: 42px;
+  padding: $space-xs $space-sm;
+  background-color: rgba($light-background, 0.7);
+  border-bottom: 1px solid $border-light;
+}
+
+.btn {
+  @include flexCenter;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 $space-xs;
+  font-size: $text-xs;
+  font-weight: 700;
+  color: rgba($foreground, 0.7);
+  border-radius: $radius-sm;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  &:hover {
+    background-color: $foreground-light;
+    color: $foreground;
+  }
+
+  &.active {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  margin: 0 $space-xs;
+  background-color: $border-light;
+}

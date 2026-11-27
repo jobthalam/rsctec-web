@@ -1,0 +1,35 @@
+.card {
+  background-color: $foreground-light;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+  padding: $space-md $space-lg;
+  border-bottom: 1px solid $border-light;
+}
+
+.title {
+  font-size: $text-base;
+  font-weight: 700;
+}
+
+.meta {
+  font-size: $text-xs;
+  font-weight: 500;
+  color: rgba($foreground, 0.6);
+}
+
+.body {
+  padding: $space-lg;
+
+  @include respond-below(md) {
+    padding: $space-md;
+  }
+}

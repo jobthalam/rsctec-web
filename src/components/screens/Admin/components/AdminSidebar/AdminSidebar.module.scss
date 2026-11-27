@@ -1,243 +1,156 @@
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba($dark-background, 0.75);
-  backdrop-filter: blur($space-xs);
-  display: block;
-
-  @include respond-above(lg) {
-    display: none;
-  }
-}
-
 .sidebar {
-  width: 280px;
-  background-color: $surface-dark;
-  border-right: 1px solid $border;
-  display: flex;
-  flex-direction: column;
+  width: 240px;
   flex-shrink: 0;
-  min-height: 100vh;
-  transition: transform $transition-default;
-
-  @include respond-below(lg) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    box-shadow: $shadow-xl;
-  }
-}
-
-.sidebarOpen {
-  @include respond-below(lg) {
-    transform: translateX(0);
-  }
-}
-
-.brandHeader {
+  background-color: $foreground-light;
+  border-right: 1px solid $border-light;
+  padding: $space-lg $space-md;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  gap: $space-sm;
-  padding: $space-md $space-lg;
-  border-bottom: 1px solid $border;
-  background-color: $dark-background;
+  gap: $space-xl;
+
+  @include respond-below(md) {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-right: 0;
+    border-bottom: 1px solid $border-light;
+    padding: $space-sm $space-md;
+    gap: $space-md;
+  }
 }
 
-.logoLink {
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+
+  @include respond-below(md) {
+    flex-direction: row;
+    align-items: center;
+    gap: $space-md;
+  }
+}
+
+.brand {
   display: flex;
   align-items: center;
+  gap: $space-sm;
+  padding: 0 $space-sm;
 }
 
-.logoImg {
-  height: $space-xxl;
-  width: auto;
-  object-fit: contain;
-}
+.logo {
+  width: 110px;
+  height: auto;
 
-.consoleBadge {
-  font-size: $text-xs;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: $space-xs $space-sm;
-  border-radius: $radius-sm;
-  background-image: $gradient-primary;
-  color: $foreground-light;
-}
-
-.mobileCloseBtn {
-  @include flexCenter;
-  width: $space-xl;
-  height: $space-xl;
-  border-radius: $radius-sm;
-  color: $text-muted;
-  border: 1px solid $border;
-  display: flex;
-
-  @include respond-above(lg) {
-    display: none;
-  }
-
-  &:hover {
-    color: $foreground-light;
-    background-color: $surface-hover;
+  @include respond-below(md) {
+    width: 80px;
   }
 }
 
-.navScroll {
-  flex: 1;
-  overflow-y: auto;
-  padding: $space-md;
-  display: flex;
-  flex-direction: column;
-  gap: $space-lg;
-}
-
-.menuGroup {
-  display: flex;
-  flex-direction: column;
-  gap: $space-xs;
-}
-
-.groupTitle {
+.tag {
   font-size: $text-xs;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: $text-muted;
-  padding: 0 $space-sm $space-xs $space-sm;
+  font-weight: 600;
+  color: $primary;
+  background-color: rgba($primary, 0.08);
+  padding: 2px $space-sm;
+  border-radius: $radius-full;
 }
 
-.menuList {
+.menu {
   display: flex;
   flex-direction: column;
   gap: $space-xs;
+
+  @include respond-below(md) {
+    flex-direction: row;
+  }
 }
 
 .menuItem {
-  width: 100%;
-}
-
-.menuButton {
-  width: 100%;
   display: flex;
   align-items: center;
   gap: $space-sm;
+  width: 100%;
   padding: $space-sm $space-md;
   border-radius: $radius-md;
-  color: $text-muted;
   font-size: $text-sm;
   font-weight: 500;
+  color: $foreground;
   text-align: left;
-  transition: all $transition-fast;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  i {
+    width: 18px;
+    text-align: center;
+    opacity: 0.7;
+  }
 
   &:hover {
-    background-color: $surface-hover;
-    color: $foreground-light;
+    background-color: $light-background;
+  }
+
+  &.active {
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+
+    i {
+      opacity: 1;
+    }
+  }
+
+  @include respond-below(md) {
+    width: auto;
   }
 }
 
-.menuButtonActive {
-  background-image: $gradient-primary;
-  color: $foreground-light;
-  font-weight: 600;
-  box-shadow: $shadow-glow;
+.footerSection {
+  border-top: 1px solid $border-light;
+  padding-top: $space-md;
 
-  &:hover {
-    background-image: $gradient-primary;
-    color: $foreground-light;
-  }
-
-  .menuBadge {
-    background-color: rgba($dark-background, 0.35);
-    color: $foreground-light;
+  @include respond-below(md) {
+    border-top: 0;
+    padding-top: 0;
   }
 }
 
-.menuIcon {
-  @include flexCenter;
-  width: $space-lg;
-  font-size: $text-base;
-  flex-shrink: 0;
-}
-
-.menuLabel {
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.menuBadge {
-  font-size: $text-xs;
-  font-weight: 700;
-  padding: 2px $space-sm;
-  border-radius: $radius-full;
-  background-color: $surface-dark-highlight;
-  color: $accent;
-}
-
-.sidebarFooter {
-  padding: $space-md;
-  border-top: 1px solid $border;
-  background-color: $dark-background;
-  display: flex;
-  flex-direction: column;
-  gap: $space-sm;
-}
-
-.dbStatusBox {
+.logoutBtn {
   display: flex;
   align-items: center;
   gap: $space-sm;
-  padding: $space-sm $space-md;
-  background-color: $surface;
-  border: 1px solid $border;
-  border-radius: $radius-md;
-}
-
-.statusDot {
-  width: $space-sm;
-  height: $space-sm;
-  border-radius: $radius-full;
-  background-color: $accent;
-  box-shadow: $shadow-glow;
-  flex-shrink: 0;
-}
-
-.statusMeta {
-  display: flex;
-  flex-direction: column;
-}
-
-.statusTitle {
-  font-size: $text-xs;
-  font-weight: 700;
-  color: $foreground-light;
-}
-
-.statusSub {
-  font-size: $text-xs;
-  color: $text-muted;
-}
-
-.exitLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $space-sm;
+  width: 100%;
   padding: $space-sm $space-md;
   border-radius: $radius-md;
-  border: 1px solid $border;
-  color: $foreground-light;
   font-size: $text-sm;
-  font-weight: 600;
-  transition: all $transition-fast;
+  font-weight: 500;
+  color: rgba($foreground, 0.7);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast;
+
+  i {
+    width: 18px;
+    text-align: center;
+    opacity: 0.7;
+  }
 
   &:hover {
-    background-color: $surface-hover;
-    border-color: $primary;
+    background-color: rgba($primary, 0.08);
+    color: $primary;
+
+    i {
+      opacity: 1;
+    }
+  }
+
+  @include respond-below(md) {
+    width: auto;
   }
 }

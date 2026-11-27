@@ -1,0 +1,26 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.bulkDeleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-xs $space-md;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: $foreground-light;
+  background-color: $primary;
+  border-radius: $radius-md;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}

@@ -304,7 +304,8 @@ export const HOME_SOLUTIONS_TABS = {
 export const HOME_ABOUT_BLOCK = {
   eyebrow: "About RS Consulting",
   headline:
-    "Pure play Information Security, Cyber Risk Management consulting & Cloud Services Company.",
+    // "Pure play Information Security, Cyber Risk Management consulting & Cloud Services Company.",
+    "Pure Play Cyber Security , Data Privacy consulting and managed services company",
   paragraphs: [
     "RS Consulting (RSC Techasist Private Limited) delivers Pure-play cybersecurity firm combining hands-on technical services with expert consulting across information security and data privacy. With over four decades of collective team leadership across banking, payments, and technology, we don't stop at paperwork—we implement the technical controls that keep your enterprise resilient.",
     "We help organisations stay ahead of emerging threats and meet evolving global regulatory requirements, by implementing the controls that actually protect their data, not just the policies around it.",

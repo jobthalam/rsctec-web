@@ -173,3 +173,9 @@
     cursor: not-allowed;
   }
 }
+
+.errorText {
+  color: $primary;
+  font-size: $text-sm;
+  margin-top: $space-sm;
+}

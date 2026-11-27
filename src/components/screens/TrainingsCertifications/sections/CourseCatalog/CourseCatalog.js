@@ -7,13 +7,14 @@ import SectionHeader from "@/components/common/SectionHeader/SectionHeader";
 import { TRAINING_CATEGORIES, CATALOG_COURSES } from "@/constants/trainingsData";
 import styles from "./CourseCatalog.module.scss";
 
-export default function CourseCatalog() {
+export default function CourseCatalog({ courses = CATALOG_COURSES }) {
   const [activeCategory, setActiveCategory] = useState("All Tracks");
+  const list = courses && courses.length > 0 ? courses : CATALOG_COURSES;
 
   const filteredCourses =
     activeCategory === "All Tracks"
-      ? CATALOG_COURSES
-      : CATALOG_COURSES.filter((c) => c.category === activeCategory);
+      ? list
+      : list.filter((c) => c.category === activeCategory);
 
   return (
     <section className={styles.section}>

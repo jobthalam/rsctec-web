@@ -50,15 +50,30 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.dpdpaConsent) return;
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to submit enquiry.");
+      }
       setSubmitted(true);
-    }, 700);
+    } catch (err) {
+      setErrorMessage(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -214,6 +229,10 @@ export default function ContactForm() {
                   newsletter={formData.newsletter}
                   onChange={handleChange}
                 />
+
+                {errorMessage && (
+                  <p className={styles.errorText}>{errorMessage}</p>
+                )}
 
                 <button
                   type="submit"

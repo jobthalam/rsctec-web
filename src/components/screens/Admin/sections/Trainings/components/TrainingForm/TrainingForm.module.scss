@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: rgba($foreground, 0.6);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+.errorBanner {
+  padding: $space-sm $space-md;
+  font-size: $text-sm;
+  color: $primary;
+  background-color: rgba($primary, 0.06);
+  border: 1px solid rgba($primary, 0.2);
+  border-radius: $radius-md;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-md $space-lg;
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-sm;
+}

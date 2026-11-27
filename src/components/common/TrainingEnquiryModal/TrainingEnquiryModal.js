@@ -43,15 +43,19 @@ export default function TrainingEnquiryModal() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (trainingModal.isOpen) {
       document.body.style.overflow = "hidden";
       if (trainingModal.courseTitle) {
-        setFormData((prev) => ({
-          ...prev,
-          course: trainingModal.courseTitle,
-        }));
+        const timer = setTimeout(() => {
+          setFormData((prev) => ({
+            ...prev,
+            course: trainingModal.courseTitle,
+          }));
+        }, 0);
+        return () => clearTimeout(timer);
       }
     } else {
       document.body.style.overflow = "";
@@ -71,14 +75,28 @@ export default function TrainingEnquiryModal() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.dpdpaConsent) return;
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/training-enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to submit training enquiry.");
+      }
       setSubmitted(true);
-    }, 600);
+    } catch (err) {
+      setErrorMessage(err.message || "An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -300,6 +318,10 @@ export default function TrainingEnquiryModal() {
                 newsletter={formData.newsletter}
                 onChange={handleChange}
               />
+
+              {errorMessage && (
+                <p className={styles.errorText}>{errorMessage}</p>
+              )}
 
               <div className={styles.actions}>
                 <button

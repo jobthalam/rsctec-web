@@ -1,25 +1,28 @@
-.adminShell {
+.admin {
   display: flex;
   min-height: 100vh;
   width: 100%;
-  background-color: $dark-background;
-  color: $foreground-light;
+  background-color: $light-background;
+  color: $foreground;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $foreground;
+  }
+
+  @include respond-below(md) {
+    flex-direction: column;
+  }
 }
 
-.mainViewport {
+.content {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+  padding: $space-xl;
 
-.contentArea {
-  flex: 1;
-  padding: $space-lg;
-  overflow-y: auto;
-
-  @include respond-above(xl) {
-    padding: $space-xl;
+  @include respond-below(md) {
+    padding: $space-md;
   }
 }

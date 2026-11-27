@@ -1,0 +1,116 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+}
+
+.pill {
+  padding: $space-xs $space-md;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: rgba($foreground, 0.7);
+  background-color: $light-background;
+  border: 1px solid $border-light;
+  border-radius: $radius-full;
+  transition:
+    background-color $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover {
+    color: $foreground;
+  }
+
+  &.active {
+    color: $primary;
+    background-color: rgba($primary, 0.08);
+    border-color: rgba($primary, 0.3);
+  }
+}
+
+.add {
+  padding: $space-xs $space-md;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: $primary;
+  border: 1px dashed rgba($primary, 0.4);
+  border-radius: $radius-full;
+
+  &:hover {
+    background-color: rgba($primary, 0.06);
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $space-md;
+}
+
+.labelRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.labelField {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  width: 320px;
+  max-width: 100%;
+
+  label {
+    font-size: $text-xs;
+    font-weight: 600;
+    color: rgba($foreground, 0.7);
+  }
+
+  input {
+    padding: $space-sm $space-md;
+    font-family: inherit;
+    font-size: $text-sm;
+    color: $foreground;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    outline: none;
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-sm $space-md;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: rgba($foreground, 0.6);
+  border-radius: $radius-md;
+
+  &:hover {
+    color: $primary;
+    background-color: rgba($primary, 0.06);
+  }
+}
+
+.loading,
+.empty {
+  @include flexCenter;
+  min-height: 200px;
+  font-size: $text-sm;
+  color: rgba($foreground, 0.5);
+  border: 1px dashed $border-light;
+  border-radius: $radius-md;
+}

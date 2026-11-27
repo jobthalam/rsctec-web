@@ -99,6 +99,17 @@
   }
 }
 
+.light {
+  background-color: $foreground-light;
+  color: $foreground;
+  border-color: $border-light;
+
+  &:hover:not(:disabled) {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
 .whatsapp {
   background-color: #25d366;
   color: #ffffff;

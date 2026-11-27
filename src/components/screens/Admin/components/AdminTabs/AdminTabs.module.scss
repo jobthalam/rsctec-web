@@ -1,0 +1,39 @@
+.tabs {
+  display: flex;
+  gap: $space-lg;
+  border-bottom: 1px solid $border-light;
+  overflow-x: auto;
+}
+
+.tab {
+  position: relative;
+  padding: $space-sm 0 $space-md;
+  font-size: $text-sm;
+  font-weight: 600;
+  color: rgba($foreground, 0.55);
+  white-space: nowrap;
+  transition: color $transition-fast;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color $transition-fast;
+  }
+
+  &:hover {
+    color: $foreground;
+  }
+
+  &.active {
+    color: $primary;
+
+    &::after {
+      background-color: $primary;
+    }
+  }
+}

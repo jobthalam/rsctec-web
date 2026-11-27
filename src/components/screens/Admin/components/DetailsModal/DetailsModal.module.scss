@@ -1,0 +1,152 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  @include flexCenter;
+  padding: $space-md;
+  background-color: rgba($foreground, 0.45);
+}
+
+.modal {
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: $foreground-light;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-md;
+  padding: $space-lg;
+  border-bottom: 1px solid $border-light;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  font-size: $text-xs;
+  color: rgba($foreground, 0.55);
+  margin-bottom: $space-xs;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: $radius-full;
+  background-color: currentColor;
+}
+
+.title {
+  font-size: $text-xl;
+  font-weight: 700;
+}
+
+.closeBtn {
+  @include flexCenter;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: $radius-md;
+  color: rgba($foreground, 0.6);
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $light-background;
+    color: $foreground;
+  }
+}
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+  padding: $space-lg;
+
+  @include respond-below(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  min-width: 0;
+
+  dt {
+    font-size: $text-xs;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba($foreground, 0.5);
+    margin-bottom: $space-xs;
+  }
+
+  dd {
+    font-size: $text-sm;
+    color: $foreground;
+    word-break: break-word;
+  }
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-md;
+  padding: $space-md $space-lg;
+  border-top: 1px solid $border-light;
+  background-color: rgba($light-background, 0.4);
+}
+
+.statusWrapper {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  label {
+    font-size: $text-xs;
+    font-weight: 600;
+    color: rgba($foreground, 0.7);
+  }
+
+  select {
+    padding: 6px $space-md;
+    font-size: $text-sm;
+    color: $foreground;
+    background-color: $foreground-light;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    outline: none;
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+}
+
+.deleteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-xs;
+  font-size: $text-xs;
+  font-weight: 600;
+  color: rgba($foreground, 0.6);
+  padding: 6px $space-sm;
+  border-radius: $radius-md;
+  transition:
+    color $transition-fast,
+    background-color $transition-fast;
+
+  &:hover {
+    color: $primary;
+    background-color: rgba($primary, 0.08);
+  }
+}

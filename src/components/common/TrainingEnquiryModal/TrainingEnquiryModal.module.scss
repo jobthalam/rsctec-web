@@ -227,3 +227,9 @@
     transform: translateY(0);
   }
 }
+
+.errorText {
+  color: $primary;
+  font-size: $text-sm;
+  margin-top: $space-sm;
+}
